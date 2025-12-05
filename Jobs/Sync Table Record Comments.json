@@ -1,0 +1,108 @@
+{
+    "lastRunStatus": 0,
+    "lastRunTime": 1764844693504,
+    "uniqueIdentifier": "2ca70bd9-d35c-4a48-856f-a666f69689c6",
+    "id": 0,
+    "jobDefinitionId": 0,
+    "name": "Sync Table Record Comments",
+    "integration": "ServiceNow",
+    "script": "from SiemplifyUtils import output_handler, convert_unixtime_to_datetime, utc_now\nfrom ServiceNowManager import ServiceNowManager, ServiceNowRecordNotFoundException\nfrom constants import CASE_RULE_GENERATOR, INTEGRATION_NAME, SYNC_COMMENTS\nfrom SiemplifyJob import SiemplifyJob\nfrom UtilsManager import validate_timestamp, get_incidents_numbers_from_case\n\n\n# =====================================\n#             CONSTANTS               #\n# =====================================\nOPEN_CASE_STATUS = \"1\"\nCLOSE_CASE_STATUS = \"2\"\nSIEMPLIFY_COMMENT_PREFIX = \"Google SecOps: \"\nSN_COMMENT_PREFIX = f\"{INTEGRATION_NAME}: \"\n\n\ndef get_comment_body(comment):\n    \"\"\"\n    Get comment body\n    :param comment: {Comment or dict}\n    :return: {str} pure comment body\n    \"\"\"\n    if isinstance(comment, dict):\n        return clean_prefix(comment.get(\"comment\"))\n\n    return clean_prefix(comment.value)\n\n\ndef clean_prefix(comment_body):\n    \"\"\"\n    Clean comment prefixes\n    :param comment_body: {str} comment with prefix\n    :return: {str}\n    \"\"\"\n    if comment_body.startswith(SIEMPLIFY_COMMENT_PREFIX):\n        clean_body = comment_body.split(SIEMPLIFY_COMMENT_PREFIX, 1)\n    elif comment_body.startswith(SN_COMMENT_PREFIX):\n        clean_body = comment_body.split(SN_COMMENT_PREFIX, 1)\n    else:\n        clean_body = comment_body\n\n    return \"\".join(clean_body)\n\n\ndef get_new_comments_to_add(case_comments, sn_comments):\n    \"\"\"\n    Extract new comments from Servicenow and Siemplify\n    :param case_comments: {list} List of Siemplify comments\n    :param sn_comments: {sn_comments} List of Servicenow comments\n    :return: {tuple} Of comments from case and comments from servicenow\n    \"\"\"\n    new_comments_from_sn = sn_comments.copy()\n    new_comments_from_case = case_comments.copy()\n\n    for case_comment in case_comments:\n        if case_comment in new_comments_from_sn:\n            new_comments_from_sn.remove(case_comment)\n\n    for sn_comment in sn_comments:\n        if sn_comment in new_comments_from_case:\n            new_comments_from_case.remove(sn_comment)\n\n    return new_comments_from_case, new_comments_from_sn\n\n\ndef comments_mapper(comments):\n    \"\"\"\n    Map comments bodies\n    :param comments {list} List of comments\n    \"\"\"\n    return [get_comment_body(comment) for comment in comments]\n\n\n@output_handler\ndef main():\n    siemplify = SiemplifyJob()\n\n    try:\n        siemplify.script_name = SYNC_COMMENTS\n\n        siemplify.LOGGER.info(\"--------------- JOB STARTED ---------------\")\n\n        api_root = siemplify.extract_job_param(param_name=\"Api Root\", is_mandatory=True)\n        username = siemplify.extract_job_param(param_name=\"Username\", is_mandatory=True)\n        password = siemplify.extract_job_param(param_name=\"Password\", is_mandatory=True)\n        verify_ssl = siemplify.extract_job_param(\n            param_name=\"Verify SSL\", is_mandatory=True, input_type=bool\n        )\n        client_id = siemplify.extract_job_param(\n            param_name=\"Client ID\", is_mandatory=False\n        )\n        client_secret = siemplify.extract_job_param(\n            param_name=\"Client Secret\", is_mandatory=False\n        )\n        refresh_token = siemplify.extract_job_param(\n            param_name=\"Refresh Token\", is_mandatory=False\n        )\n        use_oauth = siemplify.extract_job_param(\n            param_name=\"Use Oauth Authentication\",\n            default_value=False,\n            input_type=bool,\n            is_mandatory=False,\n        )\n        table_name = siemplify.extract_job_param(\n            param_name=\"Table Name\", is_mandatory=True\n        )\n\n        service_now_manager = ServiceNowManager(\n            api_root=api_root,\n            username=username,\n            password=password,\n            default_incident_table=table_name,\n            verify_ssl=verify_ssl,\n            siemplify_logger=siemplify.LOGGER,\n            client_id=client_id,\n            client_secret=client_secret,\n            refresh_token=refresh_token,\n            use_oauth=use_oauth,\n        )\n\n        last_successful_execution_time = validate_timestamp(\n            siemplify.fetch_timestamp(datetime_format=True)\n        )\n        siemplify.LOGGER.info(\n            f\"Last successful execution run: {str(last_successful_execution_time)}\"\n        )\n\n        new_timestamp = utc_now()\n\n        opened_cases_ids = siemplify.get_cases_by_filter(\n            case_names=[CASE_RULE_GENERATOR], statuses=[OPEN_CASE_STATUS]\n        )\n\n        open_cases = {\n            str(case_id): siemplify._get_case_by_id(case_id)\n            for case_id in opened_cases_ids\n        }\n        # ticket case by number layer\n        ticket_case_id_by_number = {\n            number: case.get(\"identifier\")\n            for case in open_cases.values()\n            for number in get_incidents_numbers_from_case(case)\n        }\n        ticket_number_by_case_id = {\n            case_id: number for number, case_id in ticket_case_id_by_number.items()\n        }\n\n        tickets = []\n\n        for ticket_id in ticket_case_id_by_number.keys():\n            try:\n                tickets.extend(\n                    service_now_manager.get_incidents_with_pagination(\n                        numbers=[ticket_id], fields=[\"sys_id\", \"number\"]\n                    )\n                )\n            except ServiceNowRecordNotFoundException as e:\n                siemplify.LOGGER.error(f\"Failed to fetch incident with id {ticket_id}\")\n                siemplify.LOGGER.exception(e)\n\n        ticket_number_by_sys_id = {ticket.sys_id: ticket.number for ticket in tickets}\n\n        sn_comments = []\n        for ticket_sys_id, number in ticket_number_by_sys_id.items():\n            try:\n                sn_comments.extend(\n                    service_now_manager.get_ticket_comments(\n                        [ticket_sys_id],\n                        fields=[\"element_id\", \"value\", \"sys_created_on\"],\n                        order_by=\"sys_created_on\",\n                    )\n                )\n            except ServiceNowRecordNotFoundException as e:\n                siemplify.LOGGER.error(\n                    f\"Failed to fetch comment for incident with number {number}\"\n                )\n                siemplify.LOGGER.exception(e)\n\n        cases_comments = []\n\n        for case_id, case in open_cases.items():\n            try:\n                cases_comments.extend(siemplify.get_case_comments(case_id))\n            except Exception as e:\n                siemplify.LOGGER.exception(e)\n\n        siemplify_comments = {}\n\n        for case_comment in cases_comments:\n            case_id = str(case_comment.get(\"case_id\"))\n\n            if not siemplify_comments.get(case_id):\n                siemplify_comments[case_id] = []\n\n            siemplify_comments[case_id].append(case_comment)\n\n        # sort by creation_time_unix_time_in_ms\n        for case_comment in cases_comments:\n            case_id = str(case_comment.get(\"case_id\"))\n            siemplify_comments.get(case_id, []).sort(\n                key=lambda comment: convert_unixtime_to_datetime(\n                    comment.get(\"creation_time_unix_time_in_ms\", 0)\n                )\n            )\n\n        servicenow_comments = {}\n\n        for sn_comment in sn_comments:\n            sn_comment.number = ticket_number_by_sys_id.get(sn_comment.element_id)\n            case_id = ticket_case_id_by_number.get(sn_comment.number, {})\n\n            if not case_id:\n                continue\n\n            case_id = str(case_id)\n\n            if not servicenow_comments.get(case_id):\n                servicenow_comments[case_id] = []\n\n            servicenow_comments[case_id].append(sn_comment)\n\n        for case_id in open_cases:\n            raw_case_comments = comments_mapper(siemplify_comments.get(case_id, []))\n            raw_sn_comments = comments_mapper(servicenow_comments.get(case_id, []))\n            ticket_number = ticket_number_by_case_id.get(case_id)\n            new_comments_from_case, new_comments_from_sn = get_new_comments_to_add(\n                raw_case_comments, raw_sn_comments\n            )\n\n            if not new_comments_from_case and not new_comments_from_sn:\n                continue\n\n            siemplify.LOGGER.info(\n                \"--- Start synchronize comments ServiceNow <-> Google SecOps ---\"\n            )\n\n            siemplify.LOGGER.info(f\"Run on case with id {case_id}\")\n\n            # Sync ServiceNow with Siemplify\n            if new_comments_from_case:\n                siemplify.LOGGER.info(\n                    f\"Found {len(new_comments_from_case)} comments to add ServiceNow.\"\n                )\n\n            for si_comment in new_comments_from_case:\n                try:\n                    comment_with_prefix = f\"{SIEMPLIFY_COMMENT_PREFIX}{si_comment}\"\n                    service_now_manager.add_comment_to_incident(\n                        ticket_number, comment_with_prefix\n                    )\n                    siemplify.LOGGER.info(f\"Added comment to ticket {ticket_number}\")\n                except ServiceNowRecordNotFoundException as e:\n                    siemplify.LOGGER.error(e)\n                except Exception as e:\n                    siemplify.LOGGER.error(\n                        f\"Failed to add comment to ticket {ticket_number}, Reason: {e}\"\n                    )\n                    siemplify.LOGGER.exception(e)\n\n            # Sync Siemplify with ServiceNow\n            if new_comments_from_sn:\n                siemplify.LOGGER.info(\n                    f\"Found {len(new_comments_from_sn)} comments to add Google SecOps.\"\n                )\n\n            for sn_comment in new_comments_from_sn:\n                try:\n                    comment_with_prefix = f\"{SN_COMMENT_PREFIX}{sn_comment}\"\n                    siemplify.add_comment(comment_with_prefix, case_id, None)\n                    siemplify.LOGGER.info(f\"Added comments to case with id: {case_id}\")\n                except Exception as e:\n                    siemplify.LOGGER.error(\n                        f\"Failed to add comment to case {case_id}, Reason: {e}\"\n                    )\n                    siemplify.LOGGER.exception(e)\n\n            siemplify.LOGGER.info(\n                \"--- Finish synchronize comments ServiceNow <-> Google SecOps ---\"\n            )\n\n        siemplify.LOGGER.info(\"Update Job last execution timestamp\")\n        siemplify.save_timestamp(new_timestamp=new_timestamp)\n        siemplify.LOGGER.info(\"--------------- JOB FINISHED ---------------\")\n\n    except Exception as e:\n        siemplify.LOGGER.error(f\"Got exception on main handler.Error: {e}\")\n        siemplify.LOGGER.exception(e)\n\n\nif __name__ == \"__main__\":\n    main()\n",
+    "creator": "397c1695-b131-4755-99dc-a2de22acf66f",
+    "description": "This job will synchronize comments in ServiceNow table records and Siemplify cases.",
+    "isEnabled": false,
+    "isCustom": true,
+    "version": 1,
+    "parameters": [
+        {
+            "id": 2105,
+            "isMandatory": true,
+            "name": "Api Root",
+            "type": 2,
+            "value": "https://googlellcdemo3.service-now.com/api/now/v1/"
+        },
+        {
+            "id": 2106,
+            "isMandatory": true,
+            "name": "Username",
+            "type": 2,
+            "value": "admin"
+        },
+        {
+            "id": 2108,
+            "isMandatory": false,
+            "name": "Verify SSL",
+            "type": 0,
+            "value": "false"
+        },
+        {
+            "id": 2109,
+            "isMandatory": false,
+            "name": "Client ID",
+            "type": 2,
+            "value": ""
+        },
+        {
+            "id": 2112,
+            "isMandatory": false,
+            "name": "Use Oauth Authentication",
+            "type": 0,
+            "value": "false"
+        },
+        {
+            "id": 2113,
+            "isMandatory": true,
+            "name": "Table Name",
+            "type": 2,
+            "value": "incident"
+        },
+        {
+            "id": 2107,
+            "isMandatory": true,
+            "name": "Password",
+            "type": 3,
+            "value": "***************"
+        },
+        {
+            "id": 2110,
+            "isMandatory": false,
+            "name": "Client Secret",
+            "type": 3,
+            "value": "***************"
+        },
+        {
+            "id": 2111,
+            "isMandatory": false,
+            "name": "Refresh Token",
+            "type": 3,
+            "value": "***************"
+        }
+    ],
+    "runIntervalInSeconds": 18000,
+    "creationTime": "2025-12-04T10:38:04.024Z",
+    "lastModificationTime": "2025-12-04T10:38:13.512Z",
+    "isSystemJob": false,
+    "jobDefinitionName": "Sync Table Record Comments",
+    "agentIdentifier": "363fab3c-4764-4879-b0b5-6958e3f32e11",
+    "advanced": false,
+    "advancedConfig": {
+        "timeZone": "Europe/London",
+        "scheduleType": "Once",
+        "oneTimeSchedule": {
+            "startDate": {
+                "year": 2025,
+                "month": 12,
+                "day": 5
+            },
+            "time": {
+                "hours": 10,
+                "minutes": 36,
+                "seconds": 0,
+                "nanos": 0
+            },
+            "interval": 0
+        },
+        "dailySchedule": null,
+        "weeklySchedule": null,
+        "monthlySchedule": null
+    }
+}

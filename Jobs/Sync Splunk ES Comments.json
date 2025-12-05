@@ -1,0 +1,87 @@
+{
+    "lastRunStatus": 0,
+    "lastRunTime": 1764322268552,
+    "uniqueIdentifier": "50a5777d-2404-40c2-ba0e-e008d72bd96d",
+    "id": 0,
+    "jobDefinitionId": 0,
+    "name": "Sync Splunk ES Comments",
+    "integration": "Splunk",
+    "script": "from SiemplifyUtils import output_handler\nfrom SplunkManager import SplunkManager\nfrom SiemplifyJob import SiemplifyJob\nfrom SiemplifyUtils import convert_unixtime_to_datetime, utc_now\nfrom TIPCommon.extraction import extract_action_param\nfrom constants import (\n    OPEN_CASE_STATUS_ENUM,\n    SIEMPLIFY_COMMENT_PREFIX,\n    SPLUNK_COMMENT_PREFIX,\n    SYNC_COMMENTS_SCRIPT_NAME,\n    DEFAULT_DEVICE_PRODUCT,\n)\n\n\n@output_handler\ndef main():\n    siemplify = SiemplifyJob()\n\n    try:\n        siemplify.script_name = SYNC_COMMENTS_SCRIPT_NAME\n\n        siemplify.LOGGER.info(\"--------------- JOB STARTED ---------------\")\n\n        # Configurations.\n        server_address = extract_action_param(\n            siemplify=siemplify,\n            param_name=\"Server Address\",\n            is_mandatory=True,\n            print_value=True,\n        )\n\n        username = extract_action_param(\n            siemplify=siemplify, param_name=\"Username\", print_value=False\n        )\n\n        password = extract_action_param(\n            siemplify=siemplify, param_name=\"Password\", print_value=False\n        )\n\n        api_token = extract_action_param(\n            siemplify=siemplify, param_name=\"API Token\", print_value=False\n        )\n        verify_ssl = extract_action_param(\n            siemplify=siemplify, input_type=bool, param_name=\"Verify SSL\"\n        )\n        ca_certificate = extract_action_param(\n            siemplify=siemplify, param_name=\"CA Certificate File\", print_value=False\n        )\n\n        manager = SplunkManager(\n            server_address=server_address,\n            verify_ssl=verify_ssl,\n            username=username,\n            password=password,\n            api_token=api_token,\n            ca_certificate=ca_certificate,\n            siemplify_logger=siemplify.LOGGER,\n        )\n\n        # Get last Successful execution time.\n        last_successful_execution_time = siemplify.fetch_timestamp(datetime_format=True)\n\n        # Save current time at timestamp to make sure all alerts are taken.\n        new_timestamp = utc_now()\n\n        # Get open cases that created by the connector\n        cases_ids = siemplify.get_cases_by_filter(\n            case_names=[DEFAULT_DEVICE_PRODUCT], statuses=[OPEN_CASE_STATUS_ENUM]\n        )\n        if cases_ids:\n            siemplify.LOGGER.info(f\"Found {len(cases_ids)} open cases\")\n        siemplify.LOGGER.info(cases_ids)\n        all_cases = []\n        for case_id in cases_ids:\n            case = siemplify._get_case_by_id(str(case_id))\n            all_cases.append(case)\n\n        # Sync Events Comments to Splunk ES\n        siemplify.LOGGER.info(\n            \"--- Start synchronize Events Comments from Siemplify to Splunk ES ---\"\n        )\n\n        for case in all_cases:\n            siemplify.LOGGER.info(f'Run on case with id: {case.get(\"identifier\")}')\n            case_comments = siemplify.get_case_comments(case.get(\"identifier\"))\n            siemplify.LOGGER.info(\n                f\"Found {len(case_comments)} comments \"\n                f\"for case with id: {case.get('identifier')} \"\n            )\n\n            for comment in case_comments:\n                # Covert to datetime\n                comment_time = convert_unixtime_to_datetime(\n                    (comment.get(\"modification_time_unix_time_in_ms\", 0))\n                )\n\n                # Check that the comment is newer than the JOB timestamp and comment didn't come from Splunk ES\n                if comment_time > last_successful_execution_time and not comment.get(\n                    \"comment\"\n                ).startswith(SPLUNK_COMMENT_PREFIX):\n                    siemplify.LOGGER.info(\n                        f\"Found new comment at Case {case.get('identifier')}\"\n                    )\n\n                    # Add to comment Siemplify prefix in order to identify the comment as a siemplify comment\n                    comment_text = f\"{SIEMPLIFY_COMMENT_PREFIX}{comment.get('comment')}\"\n\n                    # Update all Alert's tickets in Splunk\n                    for alert in case.get(\"cyber_alerts\", []):\n                        if alert.get(\"reporting_product\") == DEFAULT_DEVICE_PRODUCT:\n                            ticket_number = alert.get(\"additional_properties\", {}).get(\n                                \"TicketId\"\n                            )\n                        else:\n                            ticket_number = alert.get(\"additional_data\")\n\n                        if ticket_number:\n                            # Add the comment to Splunk ticket\n                            try:\n                                manager.add_comment_to_event(\n                                    ticket_number, comment_text\n                                )\n                                siemplify.LOGGER.info(\n                                    f\"Add comment to ticket {ticket_number}\"\n                                )\n                            except Exception as err:\n                                siemplify.LOGGER.error(\n                                    f\"Failed to add comment to ticket {ticket_number}, \"\n                                    f\"error: {err}\"\n                                )\n                                siemplify.LOGGER.exception(err)\n                        else:\n                            siemplify.LOGGER.info(\n                                \"Cannot find issue key. \"\n                                f\"Comments from case {case.get('identifier')} \"\n                                \"not added to issue\"\n                            )\n\n        siemplify.LOGGER.info(\n            \" --- Finish synchronize comments from cases to Splunk tickets --- \"\n        )\n\n        # Sync Events Comment to Siemplify\n        siemplify.LOGGER.info(\n            \"--- Start synchronize Events Comments from Splunk to Siemplify ---\"\n        )\n\n        for case in all_cases:\n            for alert in case.get(\"cyber_alerts\", []):\n                if alert.get(\"reporting_product\") == DEFAULT_DEVICE_PRODUCT:\n                    ticket_number = alert.get(\"additional_properties\", {}).get(\n                        \"TicketId\"\n                    )\n                else:\n                    ticket_number = alert.get(\"additional_data\")\n\n                if ticket_number:\n                    try:\n                        tickets = manager.get_events_by_filter(\n                            event_ids=[ticket_number]\n                        )\n                        if tickets:\n                            ticket = tickets[0]\n                            if ticket.comments:\n                                ticket_matching_case_id = case.get(\"identifier\")\n                                case_comments = [\n                                    comment.get(\"comment\")\n                                    for comment in siemplify.get_case_comments(\n                                        ticket_matching_case_id\n                                    )\n                                ]\n                                siemplify.LOGGER.info(\n                                    f\"Found {len(ticket.comments)} comment \"\n                                    f\"for event: {ticket_number}\"\n                                )\n\n                                # Get all comments that didn't come from Siemplify\n                                comments_to_add = [\n                                    comment\n                                    for comment in ticket.comments\n                                    if not comment.startswith(SIEMPLIFY_COMMENT_PREFIX)\n                                ]\n                                comments_to_add = [\n                                    comment\n                                    for comment in comments_to_add\n                                    if f\"{SPLUNK_COMMENT_PREFIX}{comment}\"\n                                    not in case_comments\n                                ]\n\n                                # Add comments to cases.\n                                if comments_to_add:\n                                    siemplify.LOGGER.info(\n                                        \"Add comments to case \"\n                                        f\"with id: {ticket_matching_case_id}\"\n                                    )\n                                    for comment in comments_to_add:\n                                        comment_with_prefix = (\n                                            f\"{SPLUNK_COMMENT_PREFIX}{comment}\"\n                                        )\n                                        siemplify.add_comment(\n                                            comment_with_prefix,\n                                            ticket_matching_case_id,\n                                            None,\n                                        )\n                                    siemplify.LOGGER.info(\n                                        \"Comments were added successfully\"\n                                    )\n                                else:\n                                    siemplify.LOGGER.info(\n                                        f\"No new comments in event -{ticket_number}\"\n                                    )\n\n                            else:\n                                siemplify.LOGGER.info(\n                                    f\"No new comments in event -{ticket_number}\"\n                                )\n\n                    except Exception as err:\n                        siemplify.LOGGER.error(\n                            f\"Failed to get details for event {ticket_number}.\"\n                        )\n                        siemplify.LOGGER.exception(err)\n                else:\n                    siemplify.LOGGER.info(\n                        \"Cannot find issue key. Comments from \"\n                        f\"case {case.get('identifier')} not added to issue\"\n                    )\n\n        siemplify.LOGGER.info(\n            \" --- Finish synchronize comments from Splunk notable events to cases --- \"\n        )\n        # Update last successful run time with new_timestamp.\n        siemplify.save_timestamp(new_timestamp=new_timestamp)\n        siemplify.LOGGER.info(\"--------------- JOB FINISHED ---------------\")\n\n    except Exception as err:\n        siemplify.LOGGER.exception(f\"Got exception on main handler.Error: {err}\")\n        raise\n\n\nif __name__ == \"__main__\":\n    main()\n",
+    "creator": "397c1695-b131-4755-99dc-a2de22acf66f",
+    "description": "This job will synchronize comments in Splunk ES events and Siemplify cases.",
+    "isEnabled": false,
+    "isCustom": true,
+    "version": 1,
+    "parameters": [
+        {
+            "id": 537,
+            "isMandatory": true,
+            "name": "Server Address",
+            "type": 2,
+            "value": "https://lab:8089"
+        },
+        {
+            "id": 538,
+            "isMandatory": false,
+            "name": "Username",
+            "type": 2,
+            "value": "admin"
+        },
+        {
+            "id": 541,
+            "isMandatory": false,
+            "name": "CA Certificate File",
+            "type": 2,
+            "value": ""
+        },
+        {
+            "id": 542,
+            "isMandatory": false,
+            "name": "Verify SSL",
+            "type": 0,
+            "value": "true"
+        },
+        {
+            "id": 539,
+            "isMandatory": false,
+            "name": "Password",
+            "type": 3,
+            "value": "***************"
+        },
+        {
+            "id": 540,
+            "isMandatory": false,
+            "name": "API Token",
+            "type": 3,
+            "value": "***************"
+        }
+    ],
+    "runIntervalInSeconds": 3600,
+    "creationTime": "2025-11-28T09:29:08.04Z",
+    "lastModificationTime": "2025-11-28T09:31:08.559Z",
+    "isSystemJob": false,
+    "jobDefinitionName": "Sync Splunk ES Comments",
+    "agentIdentifier": "",
+    "advanced": false,
+    "advancedConfig": {
+        "timeZone": "Europe/London",
+        "scheduleType": "Once",
+        "oneTimeSchedule": {
+            "startDate": {
+                "year": 2025,
+                "month": 11,
+                "day": 29
+            },
+            "time": {
+                "hours": 9,
+                "minutes": 28,
+                "seconds": 0,
+                "nanos": 0
+            },
+            "interval": 0
+        },
+        "dailySchedule": null,
+        "weeklySchedule": null,
+        "monthlySchedule": null
+    }
+}
