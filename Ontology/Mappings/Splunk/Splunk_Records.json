@@ -1,0 +1,13 @@
+[
+    {
+        "id": 0,
+        "source": "Splunk",
+        "familyName": "Default",
+        "familyId": 0,
+        "product": null,
+        "eventName": null,
+        "mappingStatus": null,
+        "changeSource": 0,
+        "exampleEventFields": []
+    }
+]

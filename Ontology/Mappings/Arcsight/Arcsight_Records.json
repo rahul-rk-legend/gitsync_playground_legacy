@@ -1,0 +1,13 @@
+[
+    {
+        "id": 0,
+        "source": "Arcsight",
+        "familyName": "DLP",
+        "familyId": 0,
+        "product": "DLP_Product",
+        "eventName": "Data Exfiltration",
+        "mappingStatus": null,
+        "changeSource": 1,
+        "exampleEventFields": []
+    }
+]

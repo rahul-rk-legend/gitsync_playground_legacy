@@ -1,0 +1,35 @@
+[
+    {
+        "id": 0,
+        "source": "Darktrace",
+        "familyName": "Default",
+        "familyId": 0,
+        "product": "Darktrace",
+        "eventName": null,
+        "mappingStatus": null,
+        "changeSource": 0,
+        "exampleEventFields": []
+    },
+    {
+        "id": 0,
+        "source": "Darktrace",
+        "familyName": "Default",
+        "familyId": 0,
+        "product": "AI Incident",
+        "eventName": "Incident",
+        "mappingStatus": null,
+        "changeSource": 0,
+        "exampleEventFields": []
+    },
+    {
+        "id": 0,
+        "source": "Darktrace",
+        "familyName": "Default",
+        "familyId": 0,
+        "product": "AI Incident",
+        "eventName": "Event",
+        "mappingStatus": null,
+        "changeSource": 0,
+        "exampleEventFields": []
+    }
+]

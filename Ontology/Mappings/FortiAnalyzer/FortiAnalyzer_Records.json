@@ -1,0 +1,24 @@
+[
+    {
+        "id": 0,
+        "source": "FortiAnalyzer",
+        "familyName": "Default",
+        "familyId": 0,
+        "product": "Alert",
+        "eventName": null,
+        "mappingStatus": null,
+        "changeSource": 0,
+        "exampleEventFields": []
+    },
+    {
+        "id": 0,
+        "source": "FortiAnalyzer",
+        "familyName": "Default",
+        "familyId": 0,
+        "product": "Log",
+        "eventName": null,
+        "mappingStatus": null,
+        "changeSource": 0,
+        "exampleEventFields": []
+    }
+]
