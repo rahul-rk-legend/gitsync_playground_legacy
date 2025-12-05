@@ -1,0 +1,156 @@
+{
+    "IsAvailableForCommunity": false,
+    "Identifier": "Splunk",
+    "ShouldInstalledInSystem": false,
+    "Version": 59.0,
+    "DisplayName": "Splunk",
+    "Description": "Splunk captures, indexes, and correlates real-time data in a searchable repository from which it can generate graphs, reports, alerts, dashboards, and visualizations.",
+    "ImageBase64": "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",
+    "SvgImage": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<!-- Generator: Adobe Illustrator 22.0.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->\n<svg version=\"1.1\" id=\"Layer_1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"\n\t viewBox=\"0 0 25 25\" style=\"enable-background:new 0 0 25 25;\" xml:space=\"preserve\">\n<g>\n\t<g>\n\t\t<path d=\"M21.6,10.8L5.9,2.1L4.5,4.7l14.4,8L4.5,20.3l1.4,2.6l15.6-8.3c0.7-0.4,1.2-1.1,1.2-1.9C22.7,11.9,22.3,11.2,21.6,10.8z\"/>\n\t</g>\n</g>\n</svg>\n",
+    "IsCustom": false,
+    "PythonVersion": 3,
+    "IntegrationProperties": [
+        {
+            "IntegrationIdentifier": "Splunk",
+            "PropertyName": "Api Root",
+            "PropertyDescription": null,
+            "PropertyDisplayName": "Server Address",
+            "PropertyType": 5,
+            "IsMandatory": true,
+            "Value": "{SCHEMA}://{IP}:8089",
+            "Id": 0,
+            "CreationTimeUnixTimeInMs": 1764322113143,
+            "ModificationTimeUnixTimeInMs": 1764322113143
+        },
+        {
+            "IntegrationIdentifier": "Splunk",
+            "PropertyName": "Username",
+            "PropertyDescription": null,
+            "PropertyDisplayName": "Username",
+            "PropertyType": 2,
+            "IsMandatory": false,
+            "Value": "",
+            "Id": 0,
+            "CreationTimeUnixTimeInMs": 1764322113143,
+            "ModificationTimeUnixTimeInMs": 1764322113143
+        },
+        {
+            "IntegrationIdentifier": "Splunk",
+            "PropertyName": "Password",
+            "PropertyDescription": null,
+            "PropertyDisplayName": "Password",
+            "PropertyType": 3,
+            "IsMandatory": false,
+            "Value": null,
+            "Id": 0,
+            "CreationTimeUnixTimeInMs": 1764322113143,
+            "ModificationTimeUnixTimeInMs": 1764322113143
+        },
+        {
+            "IntegrationIdentifier": "Splunk",
+            "PropertyName": "API Token",
+            "PropertyDescription": null,
+            "PropertyDisplayName": "API Token",
+            "PropertyType": 3,
+            "IsMandatory": false,
+            "Value": null,
+            "Id": 0,
+            "CreationTimeUnixTimeInMs": 1764322113143,
+            "ModificationTimeUnixTimeInMs": 1764322113143
+        },
+        {
+            "IntegrationIdentifier": "Splunk",
+            "PropertyName": "Verify SSL",
+            "PropertyDescription": null,
+            "PropertyDisplayName": "Verify SSL",
+            "PropertyType": 0,
+            "IsMandatory": false,
+            "Value": "False",
+            "Id": 0,
+            "CreationTimeUnixTimeInMs": 1764322113143,
+            "ModificationTimeUnixTimeInMs": 1764322113143
+        },
+        {
+            "IntegrationIdentifier": "Splunk",
+            "PropertyName": "CA Certificate File",
+            "PropertyDescription": null,
+            "PropertyDisplayName": "CA Certificate File",
+            "PropertyType": 2,
+            "IsMandatory": false,
+            "Value": "",
+            "Id": 0,
+            "CreationTimeUnixTimeInMs": 1764322113143,
+            "ModificationTimeUnixTimeInMs": 1764322113143
+        }
+    ],
+    "IntegrationSupportedActions": [
+        {
+            "Name": "Get Host Events",
+            "Description": "Get events related to hosts in Splunk.",
+            "Id": 176,
+            "CreationTimeUnixTimeInMs": 1764322113149,
+            "ModificationTimeUnixTimeInMs": 1764322113149
+        },
+        {
+            "Name": "Ping",
+            "Description": "Test connectivity to the Splunk with parameters provided at the integration configuration page on the Marketplace tab.",
+            "Id": 177,
+            "CreationTimeUnixTimeInMs": 1764322113149,
+            "ModificationTimeUnixTimeInMs": 1764322113149
+        },
+        {
+            "Name": "Submit Event",
+            "Description": "Submit event to Splunk",
+            "Id": 178,
+            "CreationTimeUnixTimeInMs": 1764322113149,
+            "ModificationTimeUnixTimeInMs": 1764322113149
+        },
+        {
+            "Name": "Update Notable Events",
+            "Description": "Update notable events in Splunk ES. Note: This action is only supported for Splunk ES.",
+            "Id": 179,
+            "CreationTimeUnixTimeInMs": 1764322113149,
+            "ModificationTimeUnixTimeInMs": 1764322113149
+        },
+        {
+            "Name": "Execute Entity Query",
+            "Description": "Execute an entity query in Splunk. Note: this action prepares the \u201cWhere\u201d clause based on the entities. Check documentation for additional information.",
+            "Id": 180,
+            "CreationTimeUnixTimeInMs": 1764322113149,
+            "ModificationTimeUnixTimeInMs": 1764322113149
+        },
+        {
+            "Name": "SplunkQuery",
+            "Description": "Execute a query in Splunk. Note: Please exclude any quotes that are part of the query string.",
+            "Id": 181,
+            "CreationTimeUnixTimeInMs": 1764322113149,
+            "ModificationTimeUnixTimeInMs": 1764322113149
+        },
+        {
+            "Name": "SplunkCsvViewer",
+            "Description": "Deprecated. This action creates a CSV table based on the raw results.",
+            "Id": 182,
+            "CreationTimeUnixTimeInMs": 1764322113149,
+            "ModificationTimeUnixTimeInMs": 1764322113149
+        }
+    ],
+    "Categories": [
+        "SIEM",
+        "Free to use",
+        "Security"
+    ],
+    "HasConnectors": false,
+    "DocumentationLink": "https://cloud.google.com/chronicle/docs/soar/marketplace-integrations/splunk",
+    "IsCertified": false,
+    "UploaderFullName": null,
+    "PublishComment": null,
+    "UploaderEmail": null,
+    "UploaderImageBase64": null,
+    "UploaderProfileLink": null,
+    "MinimumSystemVersion": 0.0,
+    "ProductionIntegrationIdentifier": null,
+    "Type": 0,
+    "Id": 0,
+    "CreationTimeUnixTimeInMs": 1764322113143,
+    "ModificationTimeUnixTimeInMs": 1764322113143
+}

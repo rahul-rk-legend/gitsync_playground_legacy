@@ -1,0 +1,20 @@
+# GitSync
+
+## Integrations
+|Name|Description|
+|----|-----------|
+|Akamai|Akamai provides security services deployed across a global edge network. This includes Web Application Firewall (WAF) capabilities identifying web-based attacks, Bot Management distinguishing between human and automated traffic, DDoS mitigation services absorbing malicious traffic floods, and API security protections. Akamai generates security event data reflecting threats detected and actions taken at the internet edge.|
+|CSV|Integration designed around working with CSV files. CSV is a simple file format used to store tabular data, such as a spreadsheet or database.|
+|CrowdStrike Falcon|CrowdStrike Falcon is the leader in next-generation endpoint protection, threat intelligence and incident response through cloud-based endpoint protection.|
+|Darktrace|Darktrace empowers defenders to reduce risk and minimize cyber disruption. Its Self-Learning AI technology develops a deep and evolving understanding on your bespoke organization, allowing it to prevent, detect, and respond to unpredictable cyber-attacks across the entire digital environment – from cloud and email to endpoints and OT networks.|
+|FileUtilities|A set of file utility actions created for Google SecOps Community to power up playbook capabilities.|
+|FortiAnalyzer|FortiAnalyzer provides a solution to address current difficulties and strengthen security posture. As an integrated solution, FortiAnalyzer reduces the challenges of supporting multiple point products. It is also designed to include broad visibility and control of an organization’s entire digital attack surface to minimize risk.|
+|Functions|A set of math and data manipulation actions created for Google SecOps Community to power up playbook capabilities.|
+|GitSyncPlayground|Sync Google SecOps integrations, playbooks, and settings with a GitHub, BitBucket or GitLab instance|
+|Gmail|Secure business email, and so much more - the latest Gmail makes it easier to stay on top of the work that matters. With secure, ad-free email as a foundation, you can also chat, make voice or video calls, and stay on top of project work with shared files and tasks - all right in Gmail.|
+|Google Chronicle|Google SecOps enables you to examine the aggregated security information for your enterprise going back for months or longer. Use Google SecOps to search across all of the domains accessed from within your enterprise. To enable the Google API client to communicate with the Backstory API you will need Google Developer Service Account Credential, https://developers.google.com/identity/protocols/OAuth2#serviceaccount.|
+|ServiceNow|An incident ticketing integration exchanges ticket data between your ServiceNow instance and Google SecOps system.|
+|Splunk|Splunk captures, indexes, and correlates real-time data in a searchable repository from which it can generate graphs, reports, alerts, dashboards, and visualizations.|
+|UrlScanIo|urlscan.io is a service to scan and analyse websites.|
+|VirusTotalV3|VirusTotal was founded in 2004 as a free service that analyzes files and URLs for viruses, worms, trojans and other kinds of malicious content. Our goal is to make the internet a safer place through collaboration between members of the antivirus industry, researchers and end users of all kinds. Fortune 500 companies, governments and leading security companies are all part of the VirusTotal community, which has grown to over 500,000 registered users.This integration was created using the 3rd iteration of VT API.|
+

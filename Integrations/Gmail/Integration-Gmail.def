@@ -1,0 +1,153 @@
+{
+    "IsAvailableForCommunity": false,
+    "Identifier": "Gmail",
+    "ShouldInstalledInSystem": false,
+    "Version": 5.0,
+    "DisplayName": "Gmail",
+    "Description": "Secure business email, and so much more - the latest Gmail makes it easier to stay on top of the work that matters. With secure, ad-free email as a foundation, you can also chat, make voice or video calls, and stay on top of project work with shared files and tasks - all right in Gmail.",
+    "ImageBase64": "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",
+    "SvgImage": "<?xml version=\"1.0\" encoding=\"UTF-8\"?><svg id=\"Layer_1\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 25 25\"><path d=\"M22,7.05c0-1.69-1.83-2.64-3.11-1.64l-1.21.96-5.19,4.11-5.19-4.11-1.21-.96c-1.28-1.01-3.11-.04-3.11,1.64v11.61c0,.75.58,1.35,1.29,1.35h3.02v-7.72l5.19,4.08,5.19-4.09v7.73h3.02c.72,0,1.29-.61,1.29-1.36V7.05Z\"/></svg>",
+    "IsCustom": false,
+    "PythonVersion": 3,
+    "IntegrationProperties": [
+        {
+            "IntegrationIdentifier": "Gmail",
+            "PropertyName": "Service Account JSON File Content",
+            "PropertyDescription": "The content of the service account key JSON file. You can configure either this parameter, or the Workload Identity Email parameter. To configure this parameter, provide the full content of the service account key JSON file that you have downloaded when creating a service account.",
+            "PropertyDisplayName": "Service Account Json File Content",
+            "PropertyType": 3,
+            "IsMandatory": false,
+            "Value": null,
+            "Id": 0,
+            "CreationTimeUnixTimeInMs": 1764572213294,
+            "ModificationTimeUnixTimeInMs": 1764572213294
+        },
+        {
+            "IntegrationIdentifier": "Gmail",
+            "PropertyName": "Workload Identity Email",
+            "PropertyDescription": "The client email address of your service account.\nYou can configure either this parameter or the Service Account JSON File Content parameter. To impersonate service accounts with workloads, grant the Service Account Token Creator role to your Google SecOps service account.",
+            "PropertyDisplayName": "Workload Identity Email",
+            "PropertyType": 2,
+            "IsMandatory": false,
+            "Value": "",
+            "Id": 0,
+            "CreationTimeUnixTimeInMs": 1764572213294,
+            "ModificationTimeUnixTimeInMs": 1764572213294
+        },
+        {
+            "IntegrationIdentifier": "Gmail",
+            "PropertyName": "Default Mailbox",
+            "PropertyDescription": "A default mailbox to use in the integration.",
+            "PropertyDisplayName": "Default Mailbox",
+            "PropertyType": 2,
+            "IsMandatory": true,
+            "Value": "",
+            "Id": 0,
+            "CreationTimeUnixTimeInMs": 1764572213294,
+            "ModificationTimeUnixTimeInMs": 1764572213294
+        },
+        {
+            "IntegrationIdentifier": "Gmail",
+            "PropertyName": "Verify SSL",
+            "PropertyDescription": "If selected, the integration verifies that the SSL certificate for connecting to Gmail is valid. Selected by default.",
+            "PropertyDisplayName": "Verify SSL",
+            "PropertyType": 0,
+            "IsMandatory": false,
+            "Value": "true",
+            "Id": 0,
+            "CreationTimeUnixTimeInMs": 1764572213294,
+            "ModificationTimeUnixTimeInMs": 1764572213294
+        }
+    ],
+    "IntegrationSupportedActions": [
+        {
+            "Name": "Add Email Label",
+            "Description": "Use the Add Email Label action to add a label to the specified email. Adjust the action timeout in the Google SecOps IDE accordingly. This action doesn't run on Google SecOps entities.",
+            "Id": 188,
+            "CreationTimeUnixTimeInMs": 1764572213305,
+            "ModificationTimeUnixTimeInMs": 1764572213305
+        },
+        {
+            "Name": "Forward Email",
+            "Description": "Use the Forward Email action to forward emails, including emails with previous threads. This action doesn\u2019t run on Google SecOps entities",
+            "Id": 189,
+            "CreationTimeUnixTimeInMs": 1764572213305,
+            "ModificationTimeUnixTimeInMs": 1764572213305
+        },
+        {
+            "Name": "Ping",
+            "Description": "Use the Ping action to test connectivity to Gmail.",
+            "Id": 190,
+            "CreationTimeUnixTimeInMs": 1764572213305,
+            "ModificationTimeUnixTimeInMs": 1764572213305
+        },
+        {
+            "Name": "Send Email",
+            "Description": "Use the Send Email action to send an email based on the provided parameters. This action is not running on Google SecOps entities.",
+            "Id": 191,
+            "CreationTimeUnixTimeInMs": 1764572213305,
+            "ModificationTimeUnixTimeInMs": 1764572213305
+        },
+        {
+            "Name": "Delete Email",
+            "Description": "Use the Delete Email action to delete one or multiple emails from the mailbox based on the provided search criteria. By default, this action moves emails to Trash. You can configure the action to delete emails forever instead of moving them to Trash. The Delete Email action is asynchronous. Adjust the action timeout in the Google SecOps IDE accordingly. This action doesn\u2019t run on Google SecOps entities.",
+            "Id": 192,
+            "CreationTimeUnixTimeInMs": 1764572213305,
+            "ModificationTimeUnixTimeInMs": 1764572213305
+        },
+        {
+            "Name": "Search For Emails",
+            "Description": "Use the Search for Emails action to execute email search in a specified mailbox using the provided search criteria. With appropriate permissions, this action can run a search in other mailboxes. This action is asynchronous. Adjust the action timeout in the Google SecOps IDE accordingly. This action doesn't run on Google SecOps entities.",
+            "Id": 193,
+            "CreationTimeUnixTimeInMs": 1764572213305,
+            "ModificationTimeUnixTimeInMs": 1764572213305
+        },
+        {
+            "Name": "Remove Email Label",
+            "Description": "Use the Remove Email Label action to remove a label from the specified email. Adjust the action timeout in the Google SecOps IDE accordingly. This action doesn't run on Google SecOps entities.",
+            "Id": 194,
+            "CreationTimeUnixTimeInMs": 1764572213305,
+            "ModificationTimeUnixTimeInMs": 1764572213305
+        },
+        {
+            "Name": "Wait For Thread Reply",
+            "Description": "Use the Wait For Thread Reply action to wait for the user's reply based on an email sent using the Send Email action. This action is asynchronous. Adjust the action timeout in the Google SecOps IDE accordingly. This action doesn't run on Google SecOps entities.",
+            "Id": 195,
+            "CreationTimeUnixTimeInMs": 1764572213305,
+            "ModificationTimeUnixTimeInMs": 1764572213305
+        },
+        {
+            "Name": "Save Email To The Case",
+            "Description": "Use the Save Email To The Case action to save email or email attachments to the action Case Wall in Google SecOps. This action doesn\u2019t run on Google SecOps entities.",
+            "Id": 196,
+            "CreationTimeUnixTimeInMs": 1764572213305,
+            "ModificationTimeUnixTimeInMs": 1764572213305
+        },
+        {
+            "Name": "Send Thread Reply",
+            "Description": "Use the Send Thread Reply action to send a message as a reply to the email thread. This action doesn\u2019t run on Google SecOps entities.",
+            "Id": 197,
+            "CreationTimeUnixTimeInMs": 1764572213305,
+            "ModificationTimeUnixTimeInMs": 1764572213305
+        }
+    ],
+    "Categories": [
+        "IT and Infrastructure",
+        "Google",
+        "Email"
+    ],
+    "HasConnectors": false,
+    "DocumentationLink": "https://cloud.google.com/chronicle/docs/soar/marketplace-integrations/gmail",
+    "IsCertified": false,
+    "UploaderFullName": null,
+    "PublishComment": null,
+    "UploaderEmail": null,
+    "UploaderImageBase64": null,
+    "UploaderProfileLink": null,
+    "MinimumSystemVersion": 0.0,
+    "ProductionIntegrationIdentifier": null,
+    "Type": 0,
+    "Id": 0,
+    "CreationTimeUnixTimeInMs": 1764572213294,
+    "ModificationTimeUnixTimeInMs": 1764572213294
+}
