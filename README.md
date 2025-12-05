@@ -26,6 +26,17 @@
 |Splunk Query Connector|The connector sends queries that are a part of the whitelist, retrieves results and builds a case based on the results.|False|
 
 
+## Visual Families
+|Name|Description|
+|----|-----------|
+|Playground Family 1|Playground Family 1|
+|Playground Family 2|Playground Family 2|
+|Playground Family 3|Playground Family 3|
+|Remote Agent Family 1|Remote Agent Family 1|
+|Remote Agent Family 2|Remote Agent Family 2|
+|Remote Agent Family 3|Remote Agent Family 3|
+
+
 ## Jobs
 |Name|Description|
 |----|-----------|
