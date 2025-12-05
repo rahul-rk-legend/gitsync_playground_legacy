@@ -1,0 +1,34 @@
+[
+    {
+        "alias": null,
+        "id": 2,
+        "domain": "amazon.com",
+        "environments": [
+            "A",
+            "C"
+        ],
+        "creationTimeUnixTimeInMs": 1764315283476,
+        "modificationTimeUnixTimeInMs": 1764315283476
+    },
+    {
+        "alias": null,
+        "id": 3,
+        "domain": "flipkart.com",
+        "environments": [
+            "B",
+            "Default Environment"
+        ],
+        "creationTimeUnixTimeInMs": 1764315295998,
+        "modificationTimeUnixTimeInMs": 1764315295998
+    },
+    {
+        "alias": null,
+        "id": 1,
+        "domain": "google.com",
+        "environments": [
+            "*"
+        ],
+        "creationTimeUnixTimeInMs": 1764315274521,
+        "modificationTimeUnixTimeInMs": 1764315274521
+    }
+]
