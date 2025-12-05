@@ -1,7 +1,9 @@
 {
     "system_version": "6.3.67.0",
     "readme_addons": {
-        "Integration": {},
+        "Integration": {
+            "SampleIntegration": "adding a readme add on"
+        },
         "Mappings": {},
         "Visual Family": {
             "Playground Agent Family 4": "adding a readme add on"

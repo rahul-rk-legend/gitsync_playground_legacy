@@ -13,6 +13,7 @@
 |GitSyncPlayground|Sync Google SecOps integrations, playbooks, and settings with a GitHub, BitBucket or GitLab instance|
 |Gmail|Secure business email, and so much more - the latest Gmail makes it easier to stay on top of the work that matters. With secure, ad-free email as a foundation, you can also chat, make voice or video calls, and stay on top of project work with shared files and tasks - all right in Gmail.|
 |Google Chronicle|Google SecOps enables you to examine the aggregated security information for your enterprise going back for months or longer. Use Google SecOps to search across all of the domains accessed from within your enterprise. To enable the Google API client to communicate with the Backstory API you will need Google Developer Service Account Credential, https://developers.google.com/identity/protocols/OAuth2#serviceaccount.|
+|Sample Integration|This is an educational integration designed to showcase the most common design patterns, when working with actions, connectors and jobs.|
 |ServiceNow|An incident ticketing integration exchanges ticket data between your ServiceNow instance and Google SecOps system.|
 |Splunk|Splunk captures, indexes, and correlates real-time data in a searchable repository from which it can generate graphs, reports, alerts, dashboards, and visualizations.|
 |UrlScanIo|urlscan.io is a service to scan and analyse websites.|
