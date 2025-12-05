@@ -30,6 +30,7 @@
 ## Visual Families
 |Name|Description|
 |----|-----------|
+|Playground Agent Family 4|Playground Agent Family 4|
 |Playground Family 1|Playground Family 1|
 |Playground Family 2|Playground Family 2|
 |Playground Family 3|Playground Family 3|

@@ -3,7 +3,9 @@
     "readme_addons": {
         "Integration": {},
         "Mappings": {},
-        "Visual Family": {},
+        "Visual Family": {
+            "Playground Agent Family 4": "adding a readme add on"
+        },
         "Playbook": {},
         "Connector": {
             "Sample Integration - Simple Connector Example": "adding a readme add on"
