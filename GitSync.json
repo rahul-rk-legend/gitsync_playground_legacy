@@ -12,7 +12,9 @@
         "Connector": {
             "Sample Integration - Simple Connector Example": "adding a readme add on"
         },
-        "Job": {}
+        "Job": {
+            "Simple Job Example": "adding a readme add on"
+        }
     },
     "settings": {
         "update_root_readme": true

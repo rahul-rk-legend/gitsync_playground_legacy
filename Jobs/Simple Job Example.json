@@ -1,0 +1,66 @@
+{
+    "lastRunStatus": 0,
+    "lastRunTime": 1764922615723,
+    "uniqueIdentifier": "33a9ca24-948a-4e73-8a50-7108b8eb0a4a",
+    "id": 0,
+    "jobDefinitionId": 0,
+    "name": "Simple Job Example",
+    "integration": "SampleIntegration",
+    "script": "from __future__ import annotations\n\nimport json\nfrom datetime import datetime\nfrom typing import TYPE_CHECKING\n\nfrom SiemplifyDataModel import (\n    CaseFilterOperatorEnum,\n    CaseFilterSortByEnum,\n    CaseFilterSortOrderEnum,\n    CaseFilterStatusEnum,\n)\nfrom TIPCommon.base.job import Job\nfrom TIPCommon.rest.soar_api import get_case_overview_details\n\nimport constants\nfrom api_client import ApiParameters, SampleApiClient\nfrom auth import (\n    AuthenticatedSession,\n    SessionAuthenticationParameters,\n    build_auth_params,\n)\n\nif TYPE_CHECKING:\n    from typing import NoReturn\n\n    import requests\n    from TIPCommon.data_models import CaseDetails\n    from TIPCommon.types import SingleJson\n\n\nclass SimpleJobExample(Job):\n    def __init__(self) -> None:\n        super().__init__(constants.JOB_SCRIPT_NAME)\n        self.context: dict[str, str] = {}\n        self.current_date: str = self._get_today_date()\n\n    def _init_api_clients(self) -> SampleApiClient:\n        auth_params = build_auth_params(self.soar_job)\n        authenticator: AuthenticatedSession = AuthenticatedSession()\n        auth_params_for_session = SessionAuthenticationParameters(\n            api_root=auth_params.api_root,\n            password=auth_params.password,\n            verify_ssl=auth_params.verify_ssl,\n        )\n        authenticator.authenticate_session(auth_params_for_session)\n        authenticated_session: requests.Session = authenticator.session\n\n        api_params: ApiParameters = ApiParameters(\n            api_root=auth_params.api_root,\n        )\n\n        return SampleApiClient(\n            authenticated_session=authenticated_session,\n            configuration=api_params,\n            logger=self.logger,\n        )\n\n    def _perform_job(self) -> None:\n        self._load_context()\n        updated_case_ids: list[int] = []\n        cases: list[CaseDetails] = self._get_cases_with_details()\n\n        for case in cases:\n            tags = self._get_case_tags(case)\n            if self._should_close_case(tags):\n                self._close_case(case)\n                if case.id_ in self.context[constants.CASES_WITH_COMMENT_KEY]:\n                    self.context[constants.CASES_WITH_COMMENT_KEY].remove(case.id_)\n\n            if self._should_comment_on_case(tags, case.id_):\n                self._add_currency_comment_to_case(case)\n                updated_case_ids.append(case.id_)\n\n        self._update_context_with_commented_cases(updated_case_ids)\n        self._save_context()\n\n    def _load_context(self) -> None:\n        self.logger.info(\"Loading context...\")\n        context_str: str = self.soar_job.get_job_context_property(\n            self.name_id,\n            constants.SIMPLE_JOB_CONTEXT_KEY,\n        )\n        if not context_str:\n            self.logger.info(\"No context found. Initializing...\")\n            self.context = {\n                constants.DATE_KEY: self.current_date,\n                constants.CASES_WITH_COMMENT_KEY: [],\n            }\n            return\n\n        self.context = json.loads(context_str)\n        if self.context.get(constants.DATE_KEY) != self.current_date:\n            self.logger.info(\"New date detected. Resetting context.\")\n            self.context: SingleJson = {\n                constants.DATE_KEY: self.current_date,\n                constants.CASES_WITH_COMMENT_KEY: [],\n            }\n\n    def _get_cases_with_details(self) -> list[CaseDetails]:\n        return [\n            get_case_overview_details(self.soar_job, case_id) for case_id in self._get_case_ids()\n        ]\n\n    def _get_case_ids(self) -> list[int]:\n        case_ids: list[int] = self.soar_job.get_cases_ids_by_filter(\n            status=CaseFilterStatusEnum.OPEN,\n            operator=CaseFilterOperatorEnum.OR,\n            sort_by=CaseFilterSortByEnum.UPDATE_TIME,\n            sort_order=CaseFilterSortOrderEnum.ASC,\n            max_results=constants.PROCESSED_CASES_LIMIT,\n            tags=[constants.CLOSED_CASE_TAG, constants.CURRENCY_TAG],\n        )\n        self.logger.info(f\"Fetched {len(case_ids)} cases from SOAR to process.\")\n\n        return case_ids\n\n    def _get_case_tags(self, case: CaseDetails) -> list[str]:\n        return [\n            tag.get(\"displayName\").lower() if \"displayName\" in tag else tag.lower()\n            for tag in case.tags\n        ]\n\n    def _should_close_case(self, tags: list[str]) -> bool:\n        return constants.CLOSED_CASE_TAG.lower() in tags\n\n    def _close_case(self, case: CaseDetails) -> None:\n        self.soar_job.close_case(\n            root_cause=constants.ROOT_CAUSE,\n            case_id=case.id_,\n            reason=constants.CLOSE_CASE_REASON,\n            comment=constants.CLOSE_CASE_COMMENT,\n            alert_identifier=None,\n        )\n        self.logger.info(f\"Closed case: {case.id_}\")\n\n    def _should_comment_on_case(self, tags: list[str], case_id: int) -> bool:\n        return (\n            constants.CLOSED_CASE_TAG.lower() not in tags\n            and constants.CURRENCY_TAG.lower() in tags\n            and case_id not in self.context[constants.CASES_WITH_COMMENT_KEY]\n        )\n\n    def _add_currency_comment_to_case(self, case: CaseDetails) -> None:\n        exchange_data: SingleJson = self.api_client.get_job_rate()\n        rate: str = exchange_data.get(\"rates\", {}).get(\"EUR\")\n        comment: str = (\n            f\"{constants.COMMENT_PREFIX} {constants.CURRENCY_PAIR} {rate}. Date: \"\n            f\"{exchange_data[constants.DATE_KEY]}\"\n        )\n\n        self.soar_job.add_comment(\n            comment=comment,\n            case_id=case.id_,\n            alert_identifier=None,\n        )\n        self.logger.info(f\"Commented on case: {case.id_}\")\n\n    def _update_context_with_commented_cases(self, case_ids: list[int]) -> None:\n        self.context[constants.CASES_WITH_COMMENT_KEY].extend(case_ids)\n\n    def _save_context(self) -> None:\n        self.logger.info(\"Saving context...\")\n        self.soar_job.set_job_context_property(\n            identifier=self.name_id,\n            property_key=constants.SIMPLE_JOB_CONTEXT_KEY,\n            property_value=json.dumps(self.context),\n        )\n\n    def _get_today_date(self) -> str:\n        return datetime.utcnow().strftime(\"%Y-%m-%d\")\n\n\ndef main() -> NoReturn:\n    SimpleJobExample().start()\n\n\nif __name__ == \"__main__\":\n    main()\n",
+    "creator": "397c1695-b131-4755-99dc-a2de22acf66f",
+    "description": "This is an example of a simple job. It has 2 functions: if a case has a tag \"Closed\", it will close the case from the job, if a case has a tag \"Currency\", it will add a comment to the case.",
+    "isEnabled": false,
+    "isCustom": true,
+    "version": 1,
+    "parameters": [
+        {
+            "id": 2760,
+            "isMandatory": true,
+            "name": "API Root",
+            "type": 2,
+            "value": "https://api.vatcomply.com"
+        },
+        {
+            "id": 2762,
+            "isMandatory": false,
+            "name": "Verify SSL",
+            "type": 0,
+            "value": "true"
+        },
+        {
+            "id": 2761,
+            "isMandatory": false,
+            "name": "Password Field",
+            "type": 3,
+            "value": "***************"
+        }
+    ],
+    "runIntervalInSeconds": 18000,
+    "creationTime": "2025-12-05T08:16:53.681Z",
+    "lastModificationTime": "2025-12-05T08:16:55.732Z",
+    "isSystemJob": false,
+    "jobDefinitionName": "Simple Job Example",
+    "agentIdentifier": "",
+    "advanced": false,
+    "advancedConfig": {
+        "timeZone": "Europe/London",
+        "scheduleType": "Once",
+        "oneTimeSchedule": {
+            "startDate": {
+                "year": 2025,
+                "month": 12,
+                "day": 6
+            },
+            "time": {
+                "hours": 8,
+                "minutes": 16,
+                "seconds": 0,
+                "nanos": 0
+            },
+            "interval": 0
+        },
+        "dailySchedule": null,
+        "weeklySchedule": null,
+        "monthlySchedule": null
+    }
+}
