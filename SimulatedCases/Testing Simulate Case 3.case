@@ -1,0 +1,64 @@
+{
+    "cases": [
+        {
+            "creatorUserId": null,
+            "events": [
+                {
+                    "_fields": {
+                        "baseEventIds": [],
+                        "parentEventId": 0,
+                        "deviceEventClassId": "Testing Simulate Case 3",
+                        "startTime": "1764914788448",
+                        "endTime": "1764914788448",
+                        "deviceProduct": "Testing Simulate Case 3"
+                    },
+                    "_rawDataFields": {
+                        "testing Simulate Case 3": "Testing Simulate Case 3",
+                        "deviceEventClassId": "Testing Simulate Case 3",
+                        "deviceProduct": "Testing Simulate Case 3",
+                        "name": "Testing Simulate Case 3"
+                    },
+                    "environment": null,
+                    "sourceSystemName": null,
+                    "extensions": []
+                }
+            ],
+            "environment": null,
+            "sourceSystemName": "Testing Simulate Case 3",
+            "ticketId": null,
+            "description": null,
+            "displayId": null,
+            "reason": null,
+            "name": "Testing Simulate Case 3",
+            "deviceVendor": "Testing Simulate Case 3",
+            "deviceProduct": "Testing Simulate Case 3",
+            "startTime": 1764914788448,
+            "endTime": 1764914788448,
+            "type": 0,
+            "priority": -1,
+            "ruleGenerator": "Testing Simulate Case 3",
+            "sourceGroupingIdentifier": null,
+            "playbookTriggerKeywords": [],
+            "extensions": [
+                {
+                    "key": "Testing Simulate Case 3Testing Simulate Case 3",
+                    "value": "Testing Simulate Case 3Testing Simulate Case 3"
+                }
+            ],
+            "attachments": null,
+            "isTrimmed": false,
+            "dataType": 1,
+            "sourceType": 1,
+            "sourceSystemUrl": null,
+            "sourceRuleIdentifier": null,
+            "siemAlertId": null,
+            "updatedFields": [],
+            "alertUpdateSupported": false,
+            "alertMetadata": {},
+            "dataAccessScope": null
+        }
+    ],
+    "type": 0,
+    "connectorIdentifier": null,
+    "debugOutput": null
+}
