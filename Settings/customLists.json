@@ -1,0 +1,37 @@
+[
+    {
+        "entityIdentifier": "Testing Custom List 1",
+        "category": "Domain",
+        "forDBMigration": false,
+        "environments": [
+            "*"
+        ],
+        "id": 1,
+        "creationTimeUnixTimeInMs": 1764315320163,
+        "modificationTimeUnixTimeInMs": 1764315320163
+    },
+    {
+        "entityIdentifier": "Testing Custom List 2",
+        "category": "Hostname",
+        "forDBMigration": false,
+        "environments": [
+            "A",
+            "C"
+        ],
+        "id": 2,
+        "creationTimeUnixTimeInMs": 1764315334516,
+        "modificationTimeUnixTimeInMs": 1764315334516
+    },
+    {
+        "entityIdentifier": "Testing Custom List 3",
+        "category": "IP Address",
+        "forDBMigration": false,
+        "environments": [
+            "A",
+            "Default Environment"
+        ],
+        "id": 3,
+        "creationTimeUnixTimeInMs": 1764315352259,
+        "modificationTimeUnixTimeInMs": 1764315352259
+    }
+]
