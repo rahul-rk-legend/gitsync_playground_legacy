@@ -1,0 +1,24 @@
+[
+    {
+        "id": 0,
+        "source": "ServiceNow",
+        "familyName": "Default",
+        "familyId": 0,
+        "product": "Service Now",
+        "eventName": null,
+        "mappingStatus": null,
+        "changeSource": 0,
+        "exampleEventFields": []
+    },
+    {
+        "id": 0,
+        "source": "ServiceNow",
+        "familyName": "Default",
+        "familyId": 0,
+        "product": "Service Now",
+        "eventName": "change_request",
+        "mappingStatus": null,
+        "changeSource": 0,
+        "exampleEventFields": []
+    }
+]
