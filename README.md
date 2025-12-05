@@ -22,6 +22,7 @@
 ## Connectors
 |Name|Description|Has Mappings|
 |----|-----------|------------|
+|Sample Integration - Simple Connector Example|This is an example of a simple connector. It's integrated with "api.vatcomply.com" service and provides all of the main design ideas necessary to build a stable connector. Dynamic List defines what rates should be returned for a given currency and expects input in the format "EUR" etc.|True|
 |ServiceNow Connector|Fetching incidents from ServiceNow to Siemplify|True|
 |Splunk Query Connector|The connector sends queries that are a part of the whitelist, retrieves results and builds a case based on the results.|True|
 

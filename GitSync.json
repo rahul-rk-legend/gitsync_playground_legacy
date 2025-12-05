@@ -5,7 +5,9 @@
         "Mappings": {},
         "Visual Family": {},
         "Playbook": {},
-        "Connector": {},
+        "Connector": {
+            "Sample Integration - Simple Connector Example": "adding a readme add on"
+        },
         "Job": {}
     },
     "settings": {
