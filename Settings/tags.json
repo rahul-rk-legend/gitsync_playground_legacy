@@ -1,0 +1,67 @@
+[
+    {
+        "value": "DLP_Product",
+        "name": "Exchange",
+        "propertyName": "",
+        "priority": 1,
+        "isPotentialCaseName": false,
+        "environments": [],
+        "type": 1,
+        "compareType": 2,
+        "id": 7,
+        "creationTimeUnixTimeInMs": 1764765600441,
+        "modificationTimeUnixTimeInMs": 1764765600441
+    },
+    {
+        "value": "Access Disabled Accounts",
+        "name": "Graph Mail",
+        "propertyName": "",
+        "priority": 1,
+        "isPotentialCaseName": false,
+        "environments": [],
+        "type": 2,
+        "compareType": 2,
+        "id": 5,
+        "creationTimeUnixTimeInMs": 1764314855452,
+        "modificationTimeUnixTimeInMs": 1764314855452
+    },
+    {
+        "value": "Windows:AccessDisabledAccounts",
+        "name": "Sample",
+        "propertyName": "",
+        "priority": 1,
+        "isPotentialCaseName": false,
+        "environments": [],
+        "type": 1,
+        "compareType": 2,
+        "id": 3,
+        "creationTimeUnixTimeInMs": 1764314804790,
+        "modificationTimeUnixTimeInMs": 1764314804790
+    },
+    {
+        "value": "Testing",
+        "name": "Testing",
+        "propertyName": "",
+        "priority": 1,
+        "isPotentialCaseName": false,
+        "environments": [],
+        "type": 0,
+        "compareType": 2,
+        "id": 4,
+        "creationTimeUnixTimeInMs": 1764314835032,
+        "modificationTimeUnixTimeInMs": 1764314835032
+    },
+    {
+        "value": "Testing",
+        "name": "Testing Remote 2",
+        "propertyName": "Alert_Id",
+        "priority": 1,
+        "isPotentialCaseName": false,
+        "environments": [],
+        "type": 3,
+        "compareType": 2,
+        "id": 8,
+        "creationTimeUnixTimeInMs": 1764765906145,
+        "modificationTimeUnixTimeInMs": 1764765906145
+    }
+]
