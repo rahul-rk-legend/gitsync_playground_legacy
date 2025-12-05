@@ -1,0 +1,30 @@
+[
+    {
+        "type": 0,
+        "name": "Testing Email Template",
+        "content": "Testing Email Template",
+        "creatorUserName": "397c1695-b131-4755-99dc-a2de22acf66f",
+        "forMigration": false,
+        "environments": [
+            "A",
+            "Default Environment",
+            "C"
+        ],
+        "id": 1,
+        "creationTimeUnixTimeInMs": 1764315373861,
+        "modificationTimeUnixTimeInMs": 1764315373861
+    },
+    {
+        "type": 0,
+        "name": "Testing Email Template 2",
+        "content": "Testing Email Template 2",
+        "creatorUserName": "397c1695-b131-4755-99dc-a2de22acf66f",
+        "forMigration": false,
+        "environments": [
+            "*"
+        ],
+        "id": 2,
+        "creationTimeUnixTimeInMs": 1764315386863,
+        "modificationTimeUnixTimeInMs": 1764315386863
+    }
+]
