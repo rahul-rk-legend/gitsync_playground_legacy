@@ -1,0 +1,24 @@
+[
+    {
+        "id": 0,
+        "source": "Gmail",
+        "familyName": "Default",
+        "familyId": 0,
+        "product": "Gmail",
+        "eventName": "Email Received in Monitoring Mailbox",
+        "mappingStatus": null,
+        "changeSource": 0,
+        "exampleEventFields": []
+    },
+    {
+        "id": 0,
+        "source": "Gmail",
+        "familyName": "Default",
+        "familyId": 0,
+        "product": "Gmail",
+        "eventName": "Attached Email File",
+        "mappingStatus": null,
+        "changeSource": 0,
+        "exampleEventFields": []
+    }
+]
