@@ -1,0 +1,869 @@
+[
+    {
+        "environment": "A",
+        "integrationIdentifier": "VirusTotalV3",
+        "settings": {
+            "instanceDescription": "",
+            "instanceName": "VirusTotalV3_1",
+            "settings": [
+                {
+                    "propertyName": "API Key",
+                    "value": "***************",
+                    "creationTimeUnixTimeInMs": 0,
+                    "modificationTimeUnixTimeInMs": 0,
+                    "propertyType": 3,
+                    "isMandatory": true,
+                    "id": 43,
+                    "propertyDisplayName": "API Key",
+                    "propertyDescription": null,
+                    "integrationIdentifier": "VirusTotalV3",
+                    "integrationInstance": "5b60ffe2-0999-47ae-9358-5961a56af711"
+                },
+                {
+                    "propertyName": "Verify SSL",
+                    "value": "True",
+                    "creationTimeUnixTimeInMs": 0,
+                    "modificationTimeUnixTimeInMs": 0,
+                    "propertyType": 0,
+                    "isMandatory": false,
+                    "id": 44,
+                    "propertyDisplayName": "Verify SSL",
+                    "propertyDescription": null,
+                    "integrationIdentifier": "VirusTotalV3",
+                    "integrationInstance": "5b60ffe2-0999-47ae-9358-5961a56af711"
+                },
+                {
+                    "propertyName": "RunRemotely",
+                    "value": "False",
+                    "creationTimeUnixTimeInMs": 0,
+                    "modificationTimeUnixTimeInMs": 0,
+                    "propertyType": 0,
+                    "isMandatory": false,
+                    "id": 0,
+                    "propertyDisplayName": "Run Remotely",
+                    "propertyDescription": null,
+                    "integrationIdentifier": "VirusTotalV3",
+                    "integrationInstance": "5b60ffe2-0999-47ae-9358-5961a56af711"
+                },
+                {
+                    "propertyName": "AgentIdentifier",
+                    "value": null,
+                    "creationTimeUnixTimeInMs": 0,
+                    "modificationTimeUnixTimeInMs": 0,
+                    "propertyType": 9,
+                    "isMandatory": false,
+                    "id": 45,
+                    "propertyDisplayName": "Agent",
+                    "propertyDescription": null,
+                    "integrationIdentifier": "VirusTotalV3",
+                    "integrationInstance": "5b60ffe2-0999-47ae-9358-5961a56af711"
+                }
+            ]
+        }
+    },
+    {
+        "environment": "B",
+        "integrationIdentifier": "CSV",
+        "settings": {
+            "instanceDescription": "testing",
+            "instanceName": "CSV_1",
+            "settings": [
+                {
+                    "propertyName": "RunRemotely",
+                    "value": "False",
+                    "creationTimeUnixTimeInMs": 0,
+                    "modificationTimeUnixTimeInMs": 0,
+                    "propertyType": 0,
+                    "isMandatory": false,
+                    "id": 125,
+                    "propertyDisplayName": "Run Remotely",
+                    "propertyDescription": null,
+                    "integrationIdentifier": "CSV",
+                    "integrationInstance": "5880d3da-8f7e-402d-9722-f214c2ed23ac"
+                },
+                {
+                    "propertyName": "AgentIdentifier",
+                    "value": null,
+                    "creationTimeUnixTimeInMs": 0,
+                    "modificationTimeUnixTimeInMs": 0,
+                    "propertyType": 9,
+                    "isMandatory": false,
+                    "id": 126,
+                    "propertyDisplayName": "Agent",
+                    "propertyDescription": null,
+                    "integrationIdentifier": "CSV",
+                    "integrationInstance": "5880d3da-8f7e-402d-9722-f214c2ed23ac"
+                }
+            ]
+        }
+    },
+    {
+        "environment": "C",
+        "integrationIdentifier": "UrlScanIo",
+        "settings": {
+            "instanceDescription": "",
+            "instanceName": "UrlScanIo_1",
+            "settings": [
+                {
+                    "propertyName": "Api Key",
+                    "value": "***************",
+                    "creationTimeUnixTimeInMs": 0,
+                    "modificationTimeUnixTimeInMs": 0,
+                    "propertyType": 3,
+                    "isMandatory": true,
+                    "id": 121,
+                    "propertyDisplayName": "Api Key",
+                    "propertyDescription": null,
+                    "integrationIdentifier": "UrlScanIo",
+                    "integrationInstance": "ad9df762-6780-4241-8db5-d5426b51a58e"
+                },
+                {
+                    "propertyName": "Verify SSL",
+                    "value": "True",
+                    "creationTimeUnixTimeInMs": 0,
+                    "modificationTimeUnixTimeInMs": 0,
+                    "propertyType": 0,
+                    "isMandatory": false,
+                    "id": 122,
+                    "propertyDisplayName": "Verify SSL",
+                    "propertyDescription": null,
+                    "integrationIdentifier": "UrlScanIo",
+                    "integrationInstance": "ad9df762-6780-4241-8db5-d5426b51a58e"
+                },
+                {
+                    "propertyName": "RunRemotely",
+                    "value": "False",
+                    "creationTimeUnixTimeInMs": 0,
+                    "modificationTimeUnixTimeInMs": 0,
+                    "propertyType": 0,
+                    "isMandatory": false,
+                    "id": 123,
+                    "propertyDisplayName": "Run Remotely",
+                    "propertyDescription": null,
+                    "integrationIdentifier": "UrlScanIo",
+                    "integrationInstance": "ad9df762-6780-4241-8db5-d5426b51a58e"
+                },
+                {
+                    "propertyName": "AgentIdentifier",
+                    "value": null,
+                    "creationTimeUnixTimeInMs": 0,
+                    "modificationTimeUnixTimeInMs": 0,
+                    "propertyType": 9,
+                    "isMandatory": false,
+                    "id": 124,
+                    "propertyDisplayName": "Agent",
+                    "propertyDescription": null,
+                    "integrationIdentifier": "UrlScanIo",
+                    "integrationInstance": "ad9df762-6780-4241-8db5-d5426b51a58e"
+                }
+            ]
+        }
+    },
+    {
+        "environment": "Default Environment",
+        "integrationIdentifier": "FileUtilities",
+        "settings": {
+            "instanceDescription": "testing",
+            "instanceName": "System Default Instance",
+            "settings": [
+                {
+                    "propertyName": "Verify SSL",
+                    "value": "True",
+                    "creationTimeUnixTimeInMs": 0,
+                    "modificationTimeUnixTimeInMs": 0,
+                    "propertyType": 0,
+                    "isMandatory": false,
+                    "id": 3,
+                    "propertyDisplayName": "Verify SSL",
+                    "propertyDescription": "Verify SSL Certificates when executing requests to Chronicle SOAR instance.",
+                    "integrationIdentifier": "FileUtilities",
+                    "integrationInstance": "83eccdb2-4f0c-4ba8-93b5-05c1aebf7a1b"
+                },
+                {
+                    "propertyName": "RunRemotely",
+                    "value": "False",
+                    "creationTimeUnixTimeInMs": 0,
+                    "modificationTimeUnixTimeInMs": 0,
+                    "propertyType": 0,
+                    "isMandatory": false,
+                    "id": 4,
+                    "propertyDisplayName": "Run Remotely",
+                    "propertyDescription": null,
+                    "integrationIdentifier": "FileUtilities",
+                    "integrationInstance": "83eccdb2-4f0c-4ba8-93b5-05c1aebf7a1b"
+                },
+                {
+                    "propertyName": "AgentIdentifier",
+                    "value": null,
+                    "creationTimeUnixTimeInMs": 0,
+                    "modificationTimeUnixTimeInMs": 0,
+                    "propertyType": 9,
+                    "isMandatory": false,
+                    "id": 5,
+                    "propertyDisplayName": "Agent",
+                    "propertyDescription": null,
+                    "integrationIdentifier": "FileUtilities",
+                    "integrationInstance": "83eccdb2-4f0c-4ba8-93b5-05c1aebf7a1b"
+                }
+            ]
+        }
+    },
+    {
+        "environment": "Default Environment",
+        "integrationIdentifier": "VirusTotalV3",
+        "settings": {
+            "instanceDescription": "",
+            "instanceName": "System Default Instance",
+            "settings": [
+                {
+                    "propertyName": "API Key",
+                    "value": "***************",
+                    "creationTimeUnixTimeInMs": 0,
+                    "modificationTimeUnixTimeInMs": 0,
+                    "propertyType": 3,
+                    "isMandatory": true,
+                    "id": 18,
+                    "propertyDisplayName": "API Key",
+                    "propertyDescription": null,
+                    "integrationIdentifier": "VirusTotalV3",
+                    "integrationInstance": "b57ff297-7005-49b6-8521-bb24d4fa7e4c"
+                },
+                {
+                    "propertyName": "Verify SSL",
+                    "value": "True",
+                    "creationTimeUnixTimeInMs": 0,
+                    "modificationTimeUnixTimeInMs": 0,
+                    "propertyType": 0,
+                    "isMandatory": false,
+                    "id": 19,
+                    "propertyDisplayName": "Verify SSL",
+                    "propertyDescription": null,
+                    "integrationIdentifier": "VirusTotalV3",
+                    "integrationInstance": "b57ff297-7005-49b6-8521-bb24d4fa7e4c"
+                },
+                {
+                    "propertyName": "RunRemotely",
+                    "value": "False",
+                    "creationTimeUnixTimeInMs": 0,
+                    "modificationTimeUnixTimeInMs": 0,
+                    "propertyType": 0,
+                    "isMandatory": false,
+                    "id": 20,
+                    "propertyDisplayName": "Run Remotely",
+                    "propertyDescription": null,
+                    "integrationIdentifier": "VirusTotalV3",
+                    "integrationInstance": "b57ff297-7005-49b6-8521-bb24d4fa7e4c"
+                },
+                {
+                    "propertyName": "AgentIdentifier",
+                    "value": null,
+                    "creationTimeUnixTimeInMs": 0,
+                    "modificationTimeUnixTimeInMs": 0,
+                    "propertyType": 9,
+                    "isMandatory": false,
+                    "id": 21,
+                    "propertyDisplayName": "Agent",
+                    "propertyDescription": null,
+                    "integrationIdentifier": "VirusTotalV3",
+                    "integrationInstance": "b57ff297-7005-49b6-8521-bb24d4fa7e4c"
+                }
+            ]
+        }
+    },
+    {
+        "environment": "Default Environment",
+        "integrationIdentifier": "CrowdStrikeFalcon",
+        "settings": {
+            "instanceDescription": "",
+            "instanceName": "System Default Instance",
+            "settings": [
+                {
+                    "propertyName": "API Root",
+                    "value": "https://api.crowdstrike.com",
+                    "creationTimeUnixTimeInMs": 0,
+                    "modificationTimeUnixTimeInMs": 0,
+                    "propertyType": 2,
+                    "isMandatory": false,
+                    "id": 53,
+                    "propertyDisplayName": "API Root",
+                    "propertyDescription": null,
+                    "integrationIdentifier": "CrowdStrikeFalcon",
+                    "integrationInstance": "8fc273c6-4e27-4fe5-a07b-588fe26c51cf"
+                },
+                {
+                    "propertyName": "Client API ID",
+                    "value": "8afa11073d7a4fc69d42ef7ef7c9f34c",
+                    "creationTimeUnixTimeInMs": 0,
+                    "modificationTimeUnixTimeInMs": 0,
+                    "propertyType": 2,
+                    "isMandatory": true,
+                    "id": 54,
+                    "propertyDisplayName": "Client API ID",
+                    "propertyDescription": null,
+                    "integrationIdentifier": "CrowdStrikeFalcon",
+                    "integrationInstance": "8fc273c6-4e27-4fe5-a07b-588fe26c51cf"
+                },
+                {
+                    "propertyName": "Client API Secret",
+                    "value": "***************",
+                    "creationTimeUnixTimeInMs": 0,
+                    "modificationTimeUnixTimeInMs": 0,
+                    "propertyType": 3,
+                    "isMandatory": true,
+                    "id": 55,
+                    "propertyDisplayName": "Client API Secret",
+                    "propertyDescription": null,
+                    "integrationIdentifier": "CrowdStrikeFalcon",
+                    "integrationInstance": "8fc273c6-4e27-4fe5-a07b-588fe26c51cf"
+                },
+                {
+                    "propertyName": "Verify SSL",
+                    "value": "True",
+                    "creationTimeUnixTimeInMs": 0,
+                    "modificationTimeUnixTimeInMs": 0,
+                    "propertyType": 0,
+                    "isMandatory": false,
+                    "id": 56,
+                    "propertyDisplayName": "Verify SSL",
+                    "propertyDescription": null,
+                    "integrationIdentifier": "CrowdStrikeFalcon",
+                    "integrationInstance": "8fc273c6-4e27-4fe5-a07b-588fe26c51cf"
+                },
+                {
+                    "propertyName": "Customer ID",
+                    "value": "",
+                    "creationTimeUnixTimeInMs": 0,
+                    "modificationTimeUnixTimeInMs": 0,
+                    "propertyType": 2,
+                    "isMandatory": false,
+                    "id": 57,
+                    "propertyDisplayName": "Customer ID",
+                    "propertyDescription": "The customer ID of the tenant in which to execute the integration. For use in multi-tenant (MSSP) environments.",
+                    "integrationIdentifier": "CrowdStrikeFalcon",
+                    "integrationInstance": "8fc273c6-4e27-4fe5-a07b-588fe26c51cf"
+                },
+                {
+                    "propertyName": "RunRemotely",
+                    "value": "False",
+                    "creationTimeUnixTimeInMs": 0,
+                    "modificationTimeUnixTimeInMs": 0,
+                    "propertyType": 0,
+                    "isMandatory": false,
+                    "id": 58,
+                    "propertyDisplayName": "Run Remotely",
+                    "propertyDescription": null,
+                    "integrationIdentifier": "CrowdStrikeFalcon",
+                    "integrationInstance": "8fc273c6-4e27-4fe5-a07b-588fe26c51cf"
+                },
+                {
+                    "propertyName": "AgentIdentifier",
+                    "value": null,
+                    "creationTimeUnixTimeInMs": 0,
+                    "modificationTimeUnixTimeInMs": 0,
+                    "propertyType": 9,
+                    "isMandatory": false,
+                    "id": 59,
+                    "propertyDisplayName": "Agent",
+                    "propertyDescription": null,
+                    "integrationIdentifier": "CrowdStrikeFalcon",
+                    "integrationInstance": "8fc273c6-4e27-4fe5-a07b-588fe26c51cf"
+                }
+            ]
+        }
+    },
+    {
+        "environment": "Default Environment",
+        "integrationIdentifier": "FortiAnalyzer",
+        "settings": {
+            "instanceDescription": "",
+            "instanceName": "System Default Instance",
+            "settings": [
+                {
+                    "propertyName": "API Root",
+                    "value": "https://{ip_address}",
+                    "creationTimeUnixTimeInMs": 0,
+                    "modificationTimeUnixTimeInMs": 0,
+                    "propertyType": 2,
+                    "isMandatory": true,
+                    "id": 60,
+                    "propertyDisplayName": "API Root",
+                    "propertyDescription": "API root of the FortiAnalyzer instance.",
+                    "integrationIdentifier": "FortiAnalyzer",
+                    "integrationInstance": "147352cc-2a96-4652-bb72-c35adeeb4ef1"
+                },
+                {
+                    "propertyName": "Username",
+                    "value": "sa",
+                    "creationTimeUnixTimeInMs": 0,
+                    "modificationTimeUnixTimeInMs": 0,
+                    "propertyType": 2,
+                    "isMandatory": true,
+                    "id": 61,
+                    "propertyDisplayName": "Username",
+                    "propertyDescription": "Username of the FortiAnalyzer account.",
+                    "integrationIdentifier": "FortiAnalyzer",
+                    "integrationInstance": "147352cc-2a96-4652-bb72-c35adeeb4ef1"
+                },
+                {
+                    "propertyName": "Password",
+                    "value": "***************",
+                    "creationTimeUnixTimeInMs": 0,
+                    "modificationTimeUnixTimeInMs": 0,
+                    "propertyType": 3,
+                    "isMandatory": true,
+                    "id": 62,
+                    "propertyDisplayName": "Password",
+                    "propertyDescription": "Password of the FortiAnalyzer account.",
+                    "integrationIdentifier": "FortiAnalyzer",
+                    "integrationInstance": "147352cc-2a96-4652-bb72-c35adeeb4ef1"
+                },
+                {
+                    "propertyName": "Verify SSL",
+                    "value": "True",
+                    "creationTimeUnixTimeInMs": 0,
+                    "modificationTimeUnixTimeInMs": 0,
+                    "propertyType": 0,
+                    "isMandatory": false,
+                    "id": 63,
+                    "propertyDisplayName": "Verify SSL",
+                    "propertyDescription": "If enabled, verify the SSL certificate for the connection to the FortiAnalyzer is valid.",
+                    "integrationIdentifier": "FortiAnalyzer",
+                    "integrationInstance": "147352cc-2a96-4652-bb72-c35adeeb4ef1"
+                },
+                {
+                    "propertyName": "RunRemotely",
+                    "value": "False",
+                    "creationTimeUnixTimeInMs": 0,
+                    "modificationTimeUnixTimeInMs": 0,
+                    "propertyType": 0,
+                    "isMandatory": false,
+                    "id": 64,
+                    "propertyDisplayName": "Run Remotely",
+                    "propertyDescription": null,
+                    "integrationIdentifier": "FortiAnalyzer",
+                    "integrationInstance": "147352cc-2a96-4652-bb72-c35adeeb4ef1"
+                },
+                {
+                    "propertyName": "AgentIdentifier",
+                    "value": null,
+                    "creationTimeUnixTimeInMs": 0,
+                    "modificationTimeUnixTimeInMs": 0,
+                    "propertyType": 9,
+                    "isMandatory": false,
+                    "id": 65,
+                    "propertyDisplayName": "Agent",
+                    "propertyDescription": null,
+                    "integrationIdentifier": "FortiAnalyzer",
+                    "integrationInstance": "147352cc-2a96-4652-bb72-c35adeeb4ef1"
+                }
+            ]
+        }
+    },
+    {
+        "environment": "Default Environment",
+        "integrationIdentifier": "Gmail",
+        "settings": {
+            "instanceDescription": "",
+            "instanceName": "System Default Instance",
+            "settings": [
+                {
+                    "propertyName": "Service Account JSON File Content",
+                    "value": "***************",
+                    "creationTimeUnixTimeInMs": 0,
+                    "modificationTimeUnixTimeInMs": 0,
+                    "propertyType": 3,
+                    "isMandatory": false,
+                    "id": 66,
+                    "propertyDisplayName": "Service Account Json File Content",
+                    "propertyDescription": "The content of the service account key JSON file. You can configure either this parameter, or the Workload Identity Email parameter. To configure this parameter, provide the full content of the service account key JSON file that you have downloaded when creating a service account.",
+                    "integrationIdentifier": "Gmail",
+                    "integrationInstance": "c0d0756d-94b1-4257-bffc-15d721253540"
+                },
+                {
+                    "propertyName": "Workload Identity Email",
+                    "value": "",
+                    "creationTimeUnixTimeInMs": 0,
+                    "modificationTimeUnixTimeInMs": 0,
+                    "propertyType": 2,
+                    "isMandatory": false,
+                    "id": 67,
+                    "propertyDisplayName": "Workload Identity Email",
+                    "propertyDescription": "The client email address of your service account.\nYou can configure either this parameter or the Service Account JSON File Content parameter. To impersonate service accounts with workloads, grant the Service Account Token Creator role to your Google SecOps service account.",
+                    "integrationIdentifier": "Gmail",
+                    "integrationInstance": "c0d0756d-94b1-4257-bffc-15d721253540"
+                },
+                {
+                    "propertyName": "Default Mailbox",
+                    "value": "ylandovskyy@smplylab.com",
+                    "creationTimeUnixTimeInMs": 0,
+                    "modificationTimeUnixTimeInMs": 0,
+                    "propertyType": 2,
+                    "isMandatory": true,
+                    "id": 68,
+                    "propertyDisplayName": "Default Mailbox",
+                    "propertyDescription": "A default mailbox to use in the integration.",
+                    "integrationIdentifier": "Gmail",
+                    "integrationInstance": "c0d0756d-94b1-4257-bffc-15d721253540"
+                },
+                {
+                    "propertyName": "Verify SSL",
+                    "value": "False",
+                    "creationTimeUnixTimeInMs": 0,
+                    "modificationTimeUnixTimeInMs": 0,
+                    "propertyType": 0,
+                    "isMandatory": false,
+                    "id": 69,
+                    "propertyDisplayName": "Verify SSL",
+                    "propertyDescription": "If selected, the integration verifies that the SSL certificate for connecting to Gmail is valid. Selected by default.",
+                    "integrationIdentifier": "Gmail",
+                    "integrationInstance": "c0d0756d-94b1-4257-bffc-15d721253540"
+                },
+                {
+                    "propertyName": "RunRemotely",
+                    "value": "True",
+                    "creationTimeUnixTimeInMs": 0,
+                    "modificationTimeUnixTimeInMs": 0,
+                    "propertyType": 0,
+                    "isMandatory": false,
+                    "id": 70,
+                    "propertyDisplayName": "Run Remotely",
+                    "propertyDescription": null,
+                    "integrationIdentifier": "Gmail",
+                    "integrationInstance": "c0d0756d-94b1-4257-bffc-15d721253540"
+                },
+                {
+                    "propertyName": "AgentIdentifier",
+                    "value": null,
+                    "creationTimeUnixTimeInMs": 0,
+                    "modificationTimeUnixTimeInMs": 0,
+                    "propertyType": 9,
+                    "isMandatory": false,
+                    "id": 71,
+                    "propertyDisplayName": "Agent",
+                    "propertyDescription": null,
+                    "integrationIdentifier": "Gmail",
+                    "integrationInstance": "c0d0756d-94b1-4257-bffc-15d721253540"
+                }
+            ]
+        }
+    },
+    {
+        "environment": "Default Environment",
+        "integrationIdentifier": "ServiceNow",
+        "settings": {
+            "instanceDescription": "",
+            "instanceName": "System Default Instance",
+            "settings": [
+                {
+                    "propertyName": "Api Root",
+                    "value": "https://googlellcdemo3.service-now.com/api/now/v1/",
+                    "creationTimeUnixTimeInMs": 0,
+                    "modificationTimeUnixTimeInMs": 0,
+                    "propertyType": 2,
+                    "isMandatory": true,
+                    "id": 108,
+                    "propertyDisplayName": "Api Root",
+                    "propertyDescription": "API root of the ServiceNow instance.",
+                    "integrationIdentifier": "ServiceNow",
+                    "integrationInstance": "575cca1b-c4e7-4d9a-9742-8e62a21fb7f7"
+                },
+                {
+                    "propertyName": "Username",
+                    "value": "admin",
+                    "creationTimeUnixTimeInMs": 0,
+                    "modificationTimeUnixTimeInMs": 0,
+                    "propertyType": 2,
+                    "isMandatory": false,
+                    "id": 109,
+                    "propertyDisplayName": "Username",
+                    "propertyDescription": "Username of the ServiceNow account. Note: \"Username\" and \"Password\" need to be provided together to authenticate to API via \"password\" flow.",
+                    "integrationIdentifier": "ServiceNow",
+                    "integrationInstance": "575cca1b-c4e7-4d9a-9742-8e62a21fb7f7"
+                },
+                {
+                    "propertyName": "Password",
+                    "value": "***************",
+                    "creationTimeUnixTimeInMs": 0,
+                    "modificationTimeUnixTimeInMs": 0,
+                    "propertyType": 3,
+                    "isMandatory": false,
+                    "id": 110,
+                    "propertyDisplayName": "Password",
+                    "propertyDescription": "Password of the ServiceNow account. Note: \"Username\" and \"Password\" need to be provided together to authenticate to API via \"password\" flow.",
+                    "integrationIdentifier": "ServiceNow",
+                    "integrationInstance": "575cca1b-c4e7-4d9a-9742-8e62a21fb7f7"
+                },
+                {
+                    "propertyName": "Incident Table",
+                    "value": "incident",
+                    "creationTimeUnixTimeInMs": 0,
+                    "modificationTimeUnixTimeInMs": 0,
+                    "propertyType": 2,
+                    "isMandatory": false,
+                    "id": 111,
+                    "propertyDisplayName": "Incident Table",
+                    "propertyDescription": "Default table that should be used across actions that work with incidents.",
+                    "integrationIdentifier": "ServiceNow",
+                    "integrationInstance": "575cca1b-c4e7-4d9a-9742-8e62a21fb7f7"
+                },
+                {
+                    "propertyName": "Verify SSL",
+                    "value": "False",
+                    "creationTimeUnixTimeInMs": 0,
+                    "modificationTimeUnixTimeInMs": 0,
+                    "propertyType": 0,
+                    "isMandatory": false,
+                    "id": 112,
+                    "propertyDisplayName": "Verify SSL",
+                    "propertyDescription": "If enabled, verify the SSL certificate for the connection to the ServiceNow server is valid.",
+                    "integrationIdentifier": "ServiceNow",
+                    "integrationInstance": "575cca1b-c4e7-4d9a-9742-8e62a21fb7f7"
+                },
+                {
+                    "propertyName": "Client ID",
+                    "value": "",
+                    "creationTimeUnixTimeInMs": 0,
+                    "modificationTimeUnixTimeInMs": 0,
+                    "propertyType": 2,
+                    "isMandatory": false,
+                    "id": 113,
+                    "propertyDisplayName": "Client ID",
+                    "propertyDescription": "Client ID of the ServiceNow account. Note: \"Client ID\" and \"Client Secret\" need to be provided together to authenticate to API via \"client_credentials\" flow. If \"Refresh Token\" is provided, then integration will use \"refresh_token\" flow.",
+                    "integrationIdentifier": "ServiceNow",
+                    "integrationInstance": "575cca1b-c4e7-4d9a-9742-8e62a21fb7f7"
+                },
+                {
+                    "propertyName": "Client Secret",
+                    "value": "",
+                    "creationTimeUnixTimeInMs": 0,
+                    "modificationTimeUnixTimeInMs": 0,
+                    "propertyType": 3,
+                    "isMandatory": false,
+                    "id": 114,
+                    "propertyDisplayName": "Client Secret",
+                    "propertyDescription": "Client Secret of the ServiceNow account. Note: \"Client ID\" and \"Client Secret\" need to be provided together to authenticate to API via \"client_credentials\" flow. If \"Refresh Token\" is provided, then integration will use \"refresh_token\" flow.",
+                    "integrationIdentifier": "ServiceNow",
+                    "integrationInstance": "575cca1b-c4e7-4d9a-9742-8e62a21fb7f7"
+                },
+                {
+                    "propertyName": "Refresh Token",
+                    "value": "",
+                    "creationTimeUnixTimeInMs": 0,
+                    "modificationTimeUnixTimeInMs": 0,
+                    "propertyType": 3,
+                    "isMandatory": false,
+                    "id": 115,
+                    "propertyDisplayName": "Refresh Token",
+                    "propertyDescription": "Refresh Token for the \"refresh_token\" flow. Note: \"Client ID\" and \"Client Secret\" need to be provided.",
+                    "integrationIdentifier": "ServiceNow",
+                    "integrationInstance": "575cca1b-c4e7-4d9a-9742-8e62a21fb7f7"
+                },
+                {
+                    "propertyName": "Use Oauth Authentication",
+                    "value": "False",
+                    "creationTimeUnixTimeInMs": 0,
+                    "modificationTimeUnixTimeInMs": 0,
+                    "propertyType": 0,
+                    "isMandatory": false,
+                    "id": 116,
+                    "propertyDisplayName": "Use Oauth Authentication",
+                    "propertyDescription": "If enabled, integration will try to use \"client_credentials\" or \"refresh_token\" flow.",
+                    "integrationIdentifier": "ServiceNow",
+                    "integrationInstance": "575cca1b-c4e7-4d9a-9742-8e62a21fb7f7"
+                },
+                {
+                    "propertyName": "RunRemotely",
+                    "value": "True",
+                    "creationTimeUnixTimeInMs": 0,
+                    "modificationTimeUnixTimeInMs": 0,
+                    "propertyType": 0,
+                    "isMandatory": false,
+                    "id": 117,
+                    "propertyDisplayName": "Run Remotely",
+                    "propertyDescription": null,
+                    "integrationIdentifier": "ServiceNow",
+                    "integrationInstance": "575cca1b-c4e7-4d9a-9742-8e62a21fb7f7"
+                },
+                {
+                    "propertyName": "AgentIdentifier",
+                    "value": null,
+                    "creationTimeUnixTimeInMs": 0,
+                    "modificationTimeUnixTimeInMs": 0,
+                    "propertyType": 9,
+                    "isMandatory": false,
+                    "id": 118,
+                    "propertyDisplayName": "Agent",
+                    "propertyDescription": null,
+                    "integrationIdentifier": "ServiceNow",
+                    "integrationInstance": "575cca1b-c4e7-4d9a-9742-8e62a21fb7f7"
+                }
+            ]
+        }
+    },
+    {
+        "environment": "*",
+        "integrationIdentifier": "GitSyncPlayground",
+        "settings": {
+            "instanceDescription": "",
+            "instanceName": "GitSyncPlayground_1",
+            "settings": [
+                {
+                    "propertyName": "Repo URL",
+                    "value": "https://github.com/rahul-rk-legend/gitsync_playground_legacy.git",
+                    "creationTimeUnixTimeInMs": 0,
+                    "modificationTimeUnixTimeInMs": 0,
+                    "propertyType": 2,
+                    "isMandatory": true,
+                    "id": 127,
+                    "propertyDisplayName": "Repo URL",
+                    "propertyDescription": "Repository URL. The URL must start with 'https' for HTTPS+Token or 'git@' for SSH+Cert.",
+                    "integrationIdentifier": "GitSyncPlayground",
+                    "integrationInstance": "0f7dcf35-b616-43f2-bf6a-941b77f17c70"
+                },
+                {
+                    "propertyName": "Branch",
+                    "value": "main",
+                    "creationTimeUnixTimeInMs": 0,
+                    "modificationTimeUnixTimeInMs": 0,
+                    "propertyType": 2,
+                    "isMandatory": true,
+                    "id": 128,
+                    "propertyDisplayName": "Branch",
+                    "propertyDescription": "Target branch",
+                    "integrationIdentifier": "GitSyncPlayground",
+                    "integrationInstance": "0f7dcf35-b616-43f2-bf6a-941b77f17c70"
+                },
+                {
+                    "propertyName": "Git Server Fingerprint",
+                    "value": "",
+                    "creationTimeUnixTimeInMs": 0,
+                    "modificationTimeUnixTimeInMs": 0,
+                    "propertyType": 2,
+                    "isMandatory": false,
+                    "id": 129,
+                    "propertyDisplayName": "Git Server Fingerprint",
+                    "propertyDescription": "SHA256 or MD5 fingerprint for secure Git server verification (optional). If provided, will enable secure host key verification. Format: 'SHA256:nThbg6kXUpJWGl7E1IGOCspRomTxdCARLviKw6E5SY8' or 'MD5:16:27:ac:a5:76:28:2d:36:63:1b:56:4d:eb:df:a6:48'",
+                    "integrationIdentifier": "GitSyncPlayground",
+                    "integrationInstance": "0f7dcf35-b616-43f2-bf6a-941b77f17c70"
+                },
+                {
+                    "propertyName": "Git Password/Token/SSH Key",
+                    "value": "***************",
+                    "creationTimeUnixTimeInMs": 0,
+                    "modificationTimeUnixTimeInMs": 0,
+                    "propertyType": 3,
+                    "isMandatory": true,
+                    "id": 130,
+                    "propertyDisplayName": "Git Password/Token/SSH Key",
+                    "propertyDescription": "Git Password/Token/SSH Key (Base64). RSA and Ed25519 are supported.",
+                    "integrationIdentifier": "GitSyncPlayground",
+                    "integrationInstance": "0f7dcf35-b616-43f2-bf6a-941b77f17c70"
+                },
+                {
+                    "propertyName": "Git Username",
+                    "value": "",
+                    "creationTimeUnixTimeInMs": 0,
+                    "modificationTimeUnixTimeInMs": 0,
+                    "propertyType": 2,
+                    "isMandatory": false,
+                    "id": 131,
+                    "propertyDisplayName": "Git Username",
+                    "propertyDescription": "Git Username",
+                    "integrationIdentifier": "GitSyncPlayground",
+                    "integrationInstance": "0f7dcf35-b616-43f2-bf6a-941b77f17c70"
+                },
+                {
+                    "propertyName": "Commit Author",
+                    "value": "",
+                    "creationTimeUnixTimeInMs": 0,
+                    "modificationTimeUnixTimeInMs": 0,
+                    "propertyType": 2,
+                    "isMandatory": false,
+                    "id": 132,
+                    "propertyDisplayName": "Commit Author",
+                    "propertyDescription": "Commit Author. Must be in the following format: 'James Bond <james.bond@gmail.com>'",
+                    "integrationIdentifier": "GitSyncPlayground",
+                    "integrationInstance": "0f7dcf35-b616-43f2-bf6a-941b77f17c70"
+                },
+                {
+                    "propertyName": "Siemplify Verify SSL",
+                    "value": "False",
+                    "creationTimeUnixTimeInMs": 0,
+                    "modificationTimeUnixTimeInMs": 0,
+                    "propertyType": 0,
+                    "isMandatory": false,
+                    "id": 133,
+                    "propertyDisplayName": "Siemplify Verify SSL",
+                    "propertyDescription": "Siemplify Verify SSL",
+                    "integrationIdentifier": "GitSyncPlayground",
+                    "integrationInstance": "0f7dcf35-b616-43f2-bf6a-941b77f17c70"
+                },
+                {
+                    "propertyName": "Git Verify SSL",
+                    "value": "False",
+                    "creationTimeUnixTimeInMs": 0,
+                    "modificationTimeUnixTimeInMs": 0,
+                    "propertyType": 0,
+                    "isMandatory": false,
+                    "id": 134,
+                    "propertyDisplayName": "Git Verify SSL",
+                    "propertyDescription": "Git Verify SSL",
+                    "integrationIdentifier": "GitSyncPlayground",
+                    "integrationInstance": "0f7dcf35-b616-43f2-bf6a-941b77f17c70"
+                },
+                {
+                    "propertyName": "SOAR Username",
+                    "value": null,
+                    "creationTimeUnixTimeInMs": 0,
+                    "modificationTimeUnixTimeInMs": 0,
+                    "propertyType": 2,
+                    "isMandatory": false,
+                    "id": 135,
+                    "propertyDisplayName": "SOAR Username",
+                    "propertyDescription": "Username with playbook edit permissions. Required if API Key fails due to permission limits.",
+                    "integrationIdentifier": "GitSyncPlayground",
+                    "integrationInstance": "0f7dcf35-b616-43f2-bf6a-941b77f17c70"
+                },
+                {
+                    "propertyName": "SOAR Password",
+                    "value": "",
+                    "creationTimeUnixTimeInMs": 0,
+                    "modificationTimeUnixTimeInMs": 0,
+                    "propertyType": 3,
+                    "isMandatory": false,
+                    "id": 136,
+                    "propertyDisplayName": "SOAR Password",
+                    "propertyDescription": "Password for SOAR Username.",
+                    "integrationIdentifier": "GitSyncPlayground",
+                    "integrationInstance": "0f7dcf35-b616-43f2-bf6a-941b77f17c70"
+                },
+                {
+                    "propertyName": "RunRemotely",
+                    "value": "False",
+                    "creationTimeUnixTimeInMs": 0,
+                    "modificationTimeUnixTimeInMs": 0,
+                    "propertyType": 0,
+                    "isMandatory": false,
+                    "id": 137,
+                    "propertyDisplayName": "Run Remotely",
+                    "propertyDescription": null,
+                    "integrationIdentifier": "GitSyncPlayground",
+                    "integrationInstance": "0f7dcf35-b616-43f2-bf6a-941b77f17c70"
+                },
+                {
+                    "propertyName": "AgentIdentifier",
+                    "value": null,
+                    "creationTimeUnixTimeInMs": 0,
+                    "modificationTimeUnixTimeInMs": 0,
+                    "propertyType": 9,
+                    "isMandatory": false,
+                    "id": 138,
+                    "propertyDisplayName": "Agent",
+                    "propertyDescription": null,
+                    "integrationIdentifier": "GitSyncPlayground",
+                    "integrationInstance": "0f7dcf35-b616-43f2-bf6a-941b77f17c70"
+                }
+            ]
+        }
+    }
+]
