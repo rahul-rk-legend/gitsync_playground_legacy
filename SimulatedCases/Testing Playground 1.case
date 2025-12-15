@@ -1,0 +1,64 @@
+{
+    "cases": [
+        {
+            "creatorUserId": null,
+            "events": [
+                {
+                    "_fields": {
+                        "baseEventIds": [],
+                        "parentEventId": 0,
+                        "deviceEventClassId": "Testing Playground 1",
+                        "startTime": "1765802643572",
+                        "endTime": "1765802643572",
+                        "deviceProduct": "Testing Playground 1"
+                    },
+                    "_rawDataFields": {
+                        "testing Playground 1": "Testing Playground 1",
+                        "deviceEventClassId": "Testing Playground 1",
+                        "deviceProduct": "Testing Playground 1",
+                        "name": "Testing Playground 1"
+                    },
+                    "environment": null,
+                    "sourceSystemName": null,
+                    "extensions": []
+                }
+            ],
+            "environment": null,
+            "sourceSystemName": "Testing Playground 1",
+            "ticketId": null,
+            "description": null,
+            "displayId": null,
+            "reason": null,
+            "name": "Testing Playground 1",
+            "deviceVendor": "Testing Playground 1",
+            "deviceProduct": "Testing Playground 1",
+            "startTime": 1765802643572,
+            "endTime": 1765802643572,
+            "type": 0,
+            "priority": -1,
+            "ruleGenerator": "Testing Playground 1",
+            "sourceGroupingIdentifier": null,
+            "playbookTriggerKeywords": [],
+            "extensions": [
+                {
+                    "key": "Testing Playground 1",
+                    "value": "Testing Playground 1"
+                }
+            ],
+            "attachments": null,
+            "isTrimmed": false,
+            "dataType": 1,
+            "sourceType": 1,
+            "sourceSystemUrl": null,
+            "sourceRuleIdentifier": null,
+            "siemAlertId": null,
+            "updatedFields": [],
+            "alertUpdateSupported": false,
+            "alertMetadata": {},
+            "dataAccessScope": null
+        }
+    ],
+    "type": 0,
+    "connectorIdentifier": null,
+    "debugOutput": null
+}
