@@ -1,0 +1,99 @@
+[
+    {
+        "name": "projects/project/locations/location/instances/instance/environments/0",
+        "id": 0,
+        "system": false,
+        "displayName": "A",
+        "description": "A",
+        "contact": "A",
+        "contactEmails": "a@gmail.com",
+        "contactPhone": "1234567890",
+        "retentionDuration": 3,
+        "dynamicParameters": [
+            {
+                "value": "Testing1 ",
+                "dynamicParameterId": 1,
+                "environmentId": 4
+            },
+            {
+                "value": "Testing Legacy 2",
+                "dynamicParameterId": 2,
+                "environmentId": 4
+            }
+        ],
+        "aliasesJson": "[]",
+        "dataAccessScopesJson": "[]",
+        "instanceUri": "",
+        "weight": 1
+    },
+    {
+        "name": "projects/project/locations/location/instances/instance/environments/0",
+        "id": 0,
+        "system": false,
+        "displayName": "B",
+        "description": "B",
+        "contact": "B",
+        "contactEmails": "b@gmail.com",
+        "contactPhone": "1234567890",
+        "retentionDuration": 3,
+        "dynamicParameters": [
+            {
+                "value": "Testing1 ",
+                "dynamicParameterId": 1,
+                "environmentId": 5
+            },
+            {
+                "value": "Testing Legacy 2",
+                "dynamicParameterId": 2,
+                "environmentId": 5
+            }
+        ],
+        "aliasesJson": "[]",
+        "dataAccessScopesJson": "[]",
+        "instanceUri": "",
+        "weight": 1
+    },
+    {
+        "name": "projects/project/locations/location/instances/instance/environments/0",
+        "id": 0,
+        "system": false,
+        "displayName": "C",
+        "description": "C",
+        "contact": "C",
+        "contactEmails": "c@gmail.com",
+        "contactPhone": "22222222222222222",
+        "retentionDuration": 3,
+        "dynamicParameters": [
+            {
+                "value": "Testing1 ",
+                "dynamicParameterId": 1,
+                "environmentId": 6
+            },
+            {
+                "value": "Testing Legacy 2",
+                "dynamicParameterId": 2,
+                "environmentId": 6
+            }
+        ],
+        "aliasesJson": "[]",
+        "dataAccessScopesJson": "[]",
+        "instanceUri": "",
+        "weight": 1
+    },
+    {
+        "name": "projects/project/locations/location/instances/instance/environments/0",
+        "id": 0,
+        "system": true,
+        "displayName": "Default Environment",
+        "description": "Default Environment",
+        "contact": "N/A",
+        "contactEmails": "example@example.com",
+        "contactPhone": "0000000000",
+        "retentionDuration": 3,
+        "dynamicParameters": [],
+        "aliasesJson": "[]",
+        "dataAccessScopesJson": "[]",
+        "instanceUri": "",
+        "weight": 1
+    }
+]
